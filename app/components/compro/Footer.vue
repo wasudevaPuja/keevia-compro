@@ -11,7 +11,7 @@
             to="/"
             class="inline-block group"
           >
-            <span class="font-serif italic font-bold text-3xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia</span>
+            <span class="font-serif italic font-bold text-3xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia.id</span>
           </NuxtLink>
           <p class="text-sm font-light text-white/60 max-w-sm mx-auto md:mx-0 leading-relaxed">
             Platform undangan digital premium yang merubah momen berharga Anda menjadi mahakarya abadi dalam bentuk digital yang elegan.

@@ -66,7 +66,7 @@ const toggleMobileMenu = () => {
         to="/"
         class="flex items-center gap-2 group"
       >
-        <span class="font-serif italic font-bold text-2xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia</span>
+        <span class="font-serif italic font-bold text-2xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia.id</span>
       </NuxtLink>
 
       <!-- Desktop Links -->
