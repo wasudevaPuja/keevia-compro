@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 useSeoMeta({
   title: 'Keevia | Premium Digital Invitations',
-  description: 'The most elegant digital invitation platform for your special moments.',
+  description: 'The most elegant digital invitation platform for your special moments.'
 })
 </script>
 
 <template>
   <div class="bg-[#0a0a0a] min-h-screen text-white font-sans overflow-x-hidden">
     <ComproNavbar />
-    
+
     <main>
       <ComproHero />
       <ComproFeatures />

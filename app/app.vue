@@ -2,7 +2,6 @@
 import { ref, provide } from 'vue'
 
 const url = useRequestURL()
-const route = useRoute()
 
 const PROD_DOMAINS = ['keevia.id', 'www.keevia.id']
 
@@ -40,7 +39,7 @@ useHead(() => {
     link: [
       {
         rel: 'canonical',
-        href: `https://keevia.id${route.fullPath}`
+        href: `https://keevia.id`
       },
       {
         rel: 'icon',
