@@ -1,22 +1,34 @@
 <template>
   <div
-    class="fixed bottom-6 right-6 flex flex-col gap-4 z-[9999] pointer-events-auto"
+    v-if="isPlaying !== null"
+    class="fixed bottom-6 right-6 z-[9999]"
   >
     <button
-      class="w-14 h-14 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center shadow-xl transition cursor-pointer"
-      aria-label="Scroll to Top"
-      @click="scrollToTop"
+      class="w-14 h-14 rounded-full bg-black/70 backdrop-blur text-white flex items-center justify-center shadow-xl transition"
+      @click="toggleAudio"
     >
-      <span class="text-2xl">↑</span>
+      <span v-if="isPlaying"><UIcon
+        name="mdi:volume-high"
+        class="w-5 h-5"
+      /></span>
+      <span v-else><UIcon
+        name="mdi:volume-off"
+        class="w-5 h-5"
+      /></span>
     </button>
   </div>
 </template>
 
-<script setup>
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
+<script setup lang="ts">
+import type { Ref } from 'vue'
+import { inject } from 'vue'
+
+const audioControl = inject('audioControl') as {
+  isPlaying: Ref<boolean>
+  toggleAudio: () => void
+  audio: Ref<HTMLAudioElement | null>
+} | undefined
+
+const isPlaying = audioControl?.isPlaying
+const toggleAudio = audioControl?.toggleAudio
 </script>

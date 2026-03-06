@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gian & Kristiany Wedding//SaveTheDate//EN
+BEGIN:VEVENT
+UID:20260325T0700@gian-kristiany.com
+DTSTAMP:20260305T120000Z
+DTSTART:20260325T070000Z
+DTEND:20260325T220000Z
+SUMMARY:Save Our Date - Gian & Kristiany
+LOCATION:Jl. Batu Luwih Kawan, Br. Bendul, Ds. Wongaya Gede, Penebel, Tabanan
+DESCRIPTION:Mesakapan 07.00 - 11.00, Wedding Reception 15:00 - 22:00
+END:VEVENT
+END:VCALENDAR
