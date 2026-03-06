@@ -873,7 +873,6 @@
         </section>
 
         <!-- FOOTER / THANK YOU -->
-        <!-- FOOTER / THANK YOU -->
         <section class="relative w-full min-h-screen overflow-hidden snap-start flex flex-col">
 
           <!-- Background Gradient Vertikal -->
