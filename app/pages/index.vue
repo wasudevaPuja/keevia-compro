@@ -1,15 +1,21 @@
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Keevia | Premium Digital Invitations',
-  description: 'The most elegant digital invitation platform for your special moments.',
-  ogTitle: 'Keevia | Premium Digital Invitations',
-  ogDescription: 'The most elegant digital invitation platform for your special moments.',
+  title: 'Keevia | Undangan Digital Premium & Digital Invitations',
+  description: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
+  ogTitle: 'Keevia | Undangan Digital Premium & Digital Invitations',
+  ogDescription: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
   ogImage: '/img/keevia-logo.png',
   ogUrl: 'https://keevia.id',
-  twitterTitle: 'Keevia | Premium Digital Invitations',
-  twitterDescription: 'The most elegant digital invitation platform for your special moments.',
+  twitterTitle: 'Keevia | Undangan Digital Premium & Digital Invitations',
+  twitterDescription: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
   twitterImage: '/img/keevia-logo.png',
   twitterCard: 'summary_large_image',
+})
+
+useHead({
+  meta: [
+    { name: 'keywords', content: 'undangan digital, digital invitations, undangan pernikahan digital, undangan online premium, undangan pernikahan elegan, keevia, keevia.id' }
+  ]
 })
 </script>
 
