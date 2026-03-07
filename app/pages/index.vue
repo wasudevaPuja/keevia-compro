@@ -15,6 +15,27 @@ useSeoMeta({
 useHead({
   meta: [
     { name: 'keywords', content: 'undangan digital, digital invitations, undangan pernikahan digital, undangan online premium, undangan pernikahan elegan, keevia, keevia.id' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Keevia.id",
+        "url": "https://www.keevia.id/",
+        "logo": "https://www.keevia.id/img/keevia-logo.png",
+        "description": "Platform pembuatan undangan digital premium, eksklusif, dan elegan.",
+        "sameAs": [
+          "https://instagram.com/keevia.id",
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62-877-6660-3301",
+          "contactType": "Customer Service"
+        }
+      })
+    }
   ]
 })
 </script>
