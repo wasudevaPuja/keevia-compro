@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.kevia.id/sitemap.xml
+Sitemap: https://www.keevia.id/sitemap.xml

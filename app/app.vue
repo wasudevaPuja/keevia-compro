@@ -9,6 +9,12 @@ const isProdDomain
   = import.meta.env.PROD
     && PROD_DOMAINS.includes(url.hostname)
 
+useHead({
+  meta: [
+    { name: 'google-site-verification', content: 'ffbiX-SQ_vH7N_yy9E5mnIvlOIxXm_ja-GoZ2Vo6Sfg' }
+  ]
+})
+
 useHead(() => {
   if (!isProdDomain) {
     return {

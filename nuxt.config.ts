@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
   site: {
-    url: 'https://www.kevia.id'
+    url: 'https://www.keevia.id'
   },
 
   routeRules: {
