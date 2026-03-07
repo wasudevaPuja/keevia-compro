@@ -1,7 +1,15 @@
 <script lang="ts" setup>
 useSeoMeta({
   title: 'Keevia | Premium Digital Invitations',
-  description: 'The most elegant digital invitation platform for your special moments.'
+  description: 'The most elegant digital invitation platform for your special moments.',
+  ogTitle: 'Keevia | Premium Digital Invitations',
+  ogDescription: 'The most elegant digital invitation platform for your special moments.',
+  ogImage: '/img/keevia-logo.png',
+  ogUrl: 'https://keevia.id',
+  twitterTitle: 'Keevia | Premium Digital Invitations',
+  twitterDescription: 'The most elegant digital invitation platform for your special moments.',
+  twitterImage: '/img/keevia-logo.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

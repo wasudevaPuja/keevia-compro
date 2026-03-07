@@ -1,5 +1,14 @@
 <template>
-  <div class="h-screen flex overflow-hidden">
+  <div class="flex w-full min-h-[100dvh]">
+    <!-- TOMBOL KEMBALI -->
+    <NuxtLink
+      to="/"
+      class="fixed top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20 text-white/90 hover:text-white hover:bg-black/50 hover:scale-105 transition-all duration-300 font-light text-sm tracking-wide shadow-lg"
+    >
+      <UIcon name="mdi:arrow-left" class="w-4 h-4" />
+      Kembali
+    </NuxtLink>
+
     <!-- LEFT PANEL (80%) -->
     <div class="hidden md:block md:w-4/5 h-screen relative overflow-hidden">
       <!-- Background Image -->

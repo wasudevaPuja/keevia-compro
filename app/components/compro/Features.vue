@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const features = [
   {
+    icon: 'mdi:translate',
+    title: 'Multi-Language Support',
+    description: 'Bebas kustomisasi bahasa undangan Anda untuk menyambut tamu dari berbagai latar belakang dunia.'
+  },
+  {
     icon: 'mdi:music-note-outline',
     title: 'Background Music',
     description: 'Beri sentuhan emosi dengan musik latar pilihan yang otomatis terputar saat undangan dibuka.'
@@ -63,24 +68,35 @@ const features = [
         <div
           v-for="(feature, i) in features"
           :key="i"
-          class="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+          :class="[
+            'group p-8 rounded-3xl relative overflow-hidden transition-all duration-500',
+            i === 0 
+              ? 'bg-gradient-to-br from-pink-500/20 to-purple-500/10 border-pink-400/50 shadow-[0_0_30px_rgba(249,168,212,0.2)] md:col-span-2 lg:col-span-3 scale-[1.02] hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(249,168,212,0.3)]' 
+              : 'bg-white/5 border-white/10 hover:bg-white/10 hover:-translate-y-2'
+          ]"
         >
           <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          <!-- Special glow for highlighted feature -->
+          <div v-if="i === 0" class="absolute -right-20 -top-20 w-64 h-64 bg-pink-500/20 rounded-full blur-[80px]" />
 
-          <div class="relative z-10">
-            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:border-pink-300/30">
+          <div :class="['relative z-10', i === 0 ? 'flex flex-col md:flex-row md:items-center gap-6' : '']">
+            <div :class="['rounded-2xl flex flex-shrink-0 items-center justify-center transition-transform duration-500', i === 0 ? 'w-20 h-20 bg-pink-400/20 border border-pink-300/50 mb-0 md:mr-6' : 'w-14 h-14 bg-white/5 border border-white/10 mb-6 group-hover:scale-110 group-hover:border-pink-300/30']">
               <UIcon
                 :name="feature.icon"
-                class="w-7 h-7 text-pink-300"
+                :class="['text-pink-300', i === 0 ? 'w-10 h-10' : 'w-7 h-7']"
               />
             </div>
 
-            <h3 class="text-xl font-serif text-white mb-3">
-              {{ feature.title }}
-            </h3>
-            <p class="text-sm font-light text-white/60 leading-relaxed">
-              {{ feature.description }}
-            </p>
+            <div>
+              <div v-if="i === 0" class="inline-block px-3 py-1 mb-3 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase">New Feature</div>
+              <h3 :class="['font-serif text-white mb-3', i === 0 ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-xl']">
+                {{ feature.title }}
+              </h3>
+              <p :class="['font-light leading-relaxed', i === 0 ? 'text-white/80 text-base md:text-lg max-w-3xl' : 'text-sm text-white/60']">
+                {{ feature.description }}
+              </p>
+            </div>
           </div>
         </div>
       </div>

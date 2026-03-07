@@ -18,7 +18,7 @@
           </p>
           <div class="flex items-center justify-center md:justify-start gap-4">
             <a
-              href="#"
+              href="https://instagram.com/keevia.id"
               class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 hover:border-pink-300 transition-all"
             >
               <UIcon
@@ -32,15 +32,6 @@
             >
               <UIcon
                 name="mdi:whatsapp"
-                class="w-5 h-5"
-              />
-            </a>
-            <a
-              href="#"
-              class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 hover:border-pink-300 transition-all"
-            >
-              <UIcon
-                name="mdi:email-outline"
                 class="w-5 h-5"
               />
             </a>

@@ -16,19 +16,19 @@ useHead(() => {
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: '/favicon-v2.ico'
+          href: '/favicon.ico'
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '32x32',
-          href: '/favicon-v2.png'
+          href: '/favicon.png'
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '16x16',
-          href: '/favicon-v2.png'
+          href: '/favicon.png'
         }
       ]
     }
@@ -44,19 +44,19 @@ useHead(() => {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon-v2.ico'
+        href: '/favicon.ico'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/favicon-v2.png'
+        href: '/favicon.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/favicon-v2.png'
+        href: '/favicon.png'
       }
     ]
   }
@@ -91,11 +91,11 @@ provide('audioControl', {
     <main>
       <NuxtPage />
       <!-- Global Audio Player, hidden -->
-      <audio
+      <!-- <audio
         ref="audio"
         src="/audio/wedding-music.mp3"
         loop
-      />
+      /> -->
       <FloatingButtons />
     </main>
   </div>

@@ -2,44 +2,48 @@
 const packages = [
   {
     name: 'Basic',
-    price: '199',
+    price: '150',
     description: 'Sempurna untuk undangan digital yang simpel dan elegan.',
     features: [
-      'Pilihan Tema Basic',
-      'Masa Aktif 3 Bulan',
+      'Default 1 Bahasa',
       'Galeri Max 10 Foto',
-      'Background Music Basic',
+      'Video Pre-Wedding Integration',
+      'Custom Background Music',
       'Navigasi Peta (Google Maps)',
-      'Hitung Mundur (Countdown)'
+      'Hitung Mundur (Countdown)',
+      'Konsultasi Tema'
     ],
     highlight: false
   },
   {
-    name: 'Premium',
-    price: '349',
-    description: 'Pilihan terpopuler dengan fitur lengkap untuk hari bahagia Anda.',
+    name: 'Basic + 1 Bahasa',
+    price: '200',
+    description: 'Pilihan terpopuler dengan tambahan opsi bahasa untuk hari bahagia Anda.',
     features: [
-      'Pilihan Tema Premium',
-      'Masa Aktif 6 Bulan',
-      'Galeri Max 25 Foto',
+      'Default + 1 Bahasa Tambahan',
+      'Galeri Max 15 Foto',
+      'Video Pre-Wedding Integration',
       'Custom Background Music',
-      'Fitur RSVP & Buku Tamu',
+      'Fitur RSVP',
+      'Navigasi Peta (Google Maps)',
       'Fitur Amplop Digital (Gift)',
-      'Custom Nama Tamu Unlimited'
+      'Hitung Mundur (Countdown)',
+      'Konsultasi Tema'
     ],
     highlight: true
   },
   {
-    name: 'Exclusive',
-    price: '599',
+    name: 'Custom Template',
+    price: 'Custom',
     description: 'Desain khusus dan eksklusif persis sesuai keinginan Anda.',
     features: [
+      'Multi-bahasa',
       'Desain Tema Custom/Eksklusif',
-      'Masa Aktif 1 Tahun',
       'Galeri Foto Unlimited',
+      'Navigasi Peta (Google Maps)',
+      'Hitung Mundur (Countdown)',
       'Video Pre-Wedding Integration',
       'Custom Domain (namaanda.com)',
-      'Prioritas Support 24/7',
       'Revisi Sepuasnya'
     ],
     highlight: false
@@ -107,10 +111,16 @@ const packages = [
           </div>
 
           <div class="mb-8 flex items-end gap-1">
-            <span class="text-xl text-white/60 font-medium">Rp</span>
-            <span class="text-5xl font-serif text-white">{{ pkg.price }}</span>
-            <span class="text-white/60 mb-1">k</span>
+            <template v-if="pkg.price === 'Custom'">
+              <span class="text-3xl lg:text-4xl font-serif text-white">Hubungi Kami</span>
+            </template>
+            <template v-else>
+              <span class="text-xl text-white/60 font-medium">Rp</span>
+              <span class="text-5xl font-serif text-white">{{ pkg.price }}</span>
+              <span class="text-white/60 mb-1">k</span>
+            </template>
           </div>
+
 
           <div class="space-y-4 mb-10">
             <div

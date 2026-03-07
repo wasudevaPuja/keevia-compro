@@ -64,9 +64,10 @@ const toggleMobileMenu = () => {
       <!-- Logo -->
       <NuxtLink
         to="/"
-        class="flex items-center gap-2 group"
+        class="flex items-center gap-3 group"
       >
-        <span class="font-serif italic font-bold text-2xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia.id</span>
+        <img src="/img/keevia-logo.png" alt="Keevia Logo" class="w-10 h-10 rounded-xl object-cover shadow-[0_0_15px_rgba(249,168,212,0.4)] transition-transform duration-300 group-hover:scale-105" />
+        <span class="font-serif italic font-bold text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 drop-shadow-[0_0_15px_rgba(249,168,212,0.4)] group-hover:from-pink-300 group-hover:to-purple-300 transition-all">Keevia.id</span>
       </NuxtLink>
 
       <!-- Desktop Links -->

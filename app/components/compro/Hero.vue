@@ -6,7 +6,7 @@
       <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20 z-0" />
 
       <!-- Optional subtle video bg for extra premium feel -->
-      <video
+      <!-- <video
         autoplay
         muted
         loop
@@ -17,7 +17,7 @@
           src="/video/wedding-video.mp4"
           type="video/mp4"
         >
-      </video>
+      </video> -->
 
       <!-- Vignette -->
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.9)_100%)] z-20 pointer-events-none" />
@@ -66,17 +66,24 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20" />
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-t-3xl overflow-hidden shadow-2xl relative shadow-[0_-20px_50px_rgba(249,168,212,0.1)] transform rotate-x-12 translate-y-10 group hover:rotate-x-0 hover:translate-y-0 transition-transform duration-1000">
           <!-- Mockup Header -->
-          <div class="h-10 border-b border-white/10 flex items-center px-4 gap-2 bg-black/40">
+          <div class="h-10 border-b border-white/10 flex items-center px-4 gap-2 bg-black/40 relative">
             <div class="w-3 h-3 rounded-full bg-red-400" />
             <div class="w-3 h-3 rounded-full bg-yellow-400" />
             <div class="w-3 h-3 rounded-full bg-green-400" />
           </div>
-          <!-- Mockup Image placeholder -->
-          <img
-            src="/img/background-hero.webp"
-            alt="Keevia Dashboard Preview"
-            class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-          >
+          <!-- Mockup Image placeholder with floating text -->
+          <div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-black/50">
+            <img
+              src="/img/blossom_showcase.png"
+              alt="Keevia Dashboard Preview"
+              class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+            >
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="px-6 py-3 md:px-8 md:py-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl">
+                <span class="text-xl md:text-3xl lg:text-4xl text-white font-serif italic tracking-widest uppercase drop-shadow-lg">Digital Invitation</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
