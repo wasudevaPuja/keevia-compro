@@ -19,6 +19,7 @@
           <div class="flex items-center justify-center md:justify-start gap-4">
             <a
               href="https://instagram.com/keevia.id"
+              target="_blank"
               class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 hover:border-pink-300 transition-all"
             >
               <UIcon
@@ -27,7 +28,8 @@
               />
             </a>
             <a
-              href="#"
+              href="https://wa.me/6287766603301"
+              target="_blank"
               class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 hover:border-pink-300 transition-all"
             >
               <UIcon
@@ -41,26 +43,26 @@
         <!-- Links -->
         <div class="space-y-6 text-center md:text-left">
           <h4 class="text-sm font-semibold tracking-widest uppercase text-white">
-            Menu
+            Navigasi
           </h4>
           <ul class="space-y-4">
             <li>
               <a
-                href="#features"
+                href="/#features"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Fitur Unggulan</a>
+              >Features</a>
             </li>
             <li>
               <a
-                href="#themes"
+                href="/#themes"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Koleksi Desain</a>
+              >Themes</a>
             </li>
             <li>
               <a
-                href="#pricing"
+                href="/#pricing"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Paket & Harga</a>
+              >Pricing</a>
             </li>
           </ul>
         </div>
@@ -71,22 +73,10 @@
           </h4>
           <ul class="space-y-4">
             <li>
-              <a
-                href="#"
+              <NuxtLink
+                to="/faq"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Syarat & Ketentuan</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Kebijakan Privasi</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >FAQ</a>
+              >FAQ</NuxtLink>
             </li>
           </ul>
         </div>
@@ -101,7 +91,7 @@
           Crafted with <UIcon
             name="mdi:heart"
             class="w-3 h-3 text-pink-500"
-          /> in Bali
+          />
         </p>
       </div>
     </div>

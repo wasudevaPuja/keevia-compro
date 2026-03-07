@@ -3,7 +3,7 @@
     <!-- WhatsApp FAB untuk halaman Company Profile (Root) -->
     <a
       v-if="isComproPage"
-      href="https://wa.me/6281234567890?text=Halo%20Keevia,%20saya%20tertarik%20dengan%20layanan%20undangan%20digitalnya."
+      href="https://wa.me/6287766603301?text=Halo%20Keevia,%20saya%20tertarik%20dengan%20layanan%20undangan%20digitalnya."
       target="_blank"
       class="group relative w-14 h-14 rounded-full flex items-center justify-center bg-green-500 hover:bg-green-600 text-white shadow-[0_10px_35px_rgba(34,197,94,0.4)] transition-all duration-300 hover:scale-110 border border-green-400"
     >
@@ -54,8 +54,8 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-// Check if current route is the Company Profile (root)
-const isComproPage = computed(() => route.path === '/')
+// Check if current route is the Company Profile (root) or FAQ
+const isComproPage = computed(() => route.path === '/' || route.path === '/faq')
 
 const audioControl = inject('audioControl') as {
   isPlaying: Ref<boolean>

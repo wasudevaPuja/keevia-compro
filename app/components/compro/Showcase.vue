@@ -47,11 +47,15 @@ const themes = [
           :to="theme.href"
           class="group relative rounded-3xl overflow-hidden aspect-[4/5] block cursor-pointer"
         >
-          <img
+          <NuxtImg
             :src="theme.image"
             :alt="theme.name"
             class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000 ease-in-out"
-          >
+            format="webp"
+            quality="80"
+            sizes="sm:100vw md:50vw lg:400px"
+            loading="lazy"
+          />
 
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 

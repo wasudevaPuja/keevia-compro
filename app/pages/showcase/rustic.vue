@@ -13,10 +13,14 @@
     <div class="hidden md:block md:w-4/5 h-screen relative overflow-hidden">
       <!-- Background Image -->
 
-      <img
+      <NuxtImg
         src="/img/vector-hero.svg"
         class="absolute inset-0 w-full h-full object-cover scale-105 sepia-[.40] contrast-110 saturate-[1.2]"
-      >
+        format="webp"
+        quality="80"
+        sizes="sm:100vw lg:100vw"
+        loading="lazy"
+      />
 
       <!-- Elegant Overlay -->
 
@@ -137,11 +141,15 @@
           <div class="flex flex-col w-full text-left">
             <!-- MEMPELAI PRIA -->
             <div class="relative w-full h-screen snap-start group overflow-hidden">
-              <img
+              <NuxtImg
                 src="/img/groom-pria.jpg"
                 alt="Groom Romeo Axton Montague"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-linear group-hover:scale-110 sepia-[.40] contrast-110 saturate-[1.2]"
-              >
+                format="webp"
+                quality="80"
+                sizes="sm:100vw md:50vw lg:50vw"
+                loading="lazy"
+              />
               <!-- Elegant Overlay Gradients -->
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
               <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
@@ -193,11 +201,15 @@
 
             <!-- MEMPELAI WANITA -->
             <div class="relative w-full h-screen snap-start group overflow-hidden">
-              <img
+              <NuxtImg
                 src="/img/groom-wanita.jpg"
                 alt="Bride Juliet Capulet"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-linear group-hover:scale-110 sepia-[.40] contrast-110 saturate-[1.2]"
-              >
+                format="webp"
+                quality="80"
+                sizes="sm:100vw md:50vw lg:50vw"
+                loading="lazy"
+              />
               <!-- Elegant Overlay Gradients -->
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
               <div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent" />

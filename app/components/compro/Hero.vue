@@ -73,11 +73,16 @@
           </div>
           <!-- Mockup Image placeholder with floating text -->
           <div class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-black/50">
-            <img
+            <NuxtImg
               src="/img/blossom_showcase.png"
               alt="Keevia Dashboard Preview"
               class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-            >
+              format="webp"
+              quality="80"
+              sizes="sm:100vw md:50vw lg:800px"
+              loading="eager"
+              preload
+            />
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div class="px-6 py-3 md:px-8 md:py-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl">
                 <span class="text-xl md:text-3xl lg:text-4xl text-white font-serif italic tracking-widest uppercase drop-shadow-lg">Digital Invitation</span>

@@ -86,6 +86,7 @@ provide('audioControl', {
 
 <template>
   <div>
+    <NuxtLoadingIndicator color="#f9a8d4" :height="3" />
     <!-- <Navbar /> -->
 
     <main>
@@ -96,7 +97,7 @@ provide('audioControl', {
         src="/audio/wedding-music.mp3"
         loop
       /> -->
-      <FloatingButtons />
+      <LazyFloatingButtons />
     </main>
   </div>
 </template>

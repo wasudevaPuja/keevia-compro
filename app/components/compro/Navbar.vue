@@ -43,9 +43,9 @@ onUnmounted(() => {
 })
 
 const navLinks = [
-  { name: 'Features', href: '#features' },
-  { name: 'Themes', href: '#themes' },
-  { name: 'Pricing', href: '#pricing' }
+  { name: 'Features', href: '/#features' },
+  { name: 'Themes', href: '/#themes' },
+  { name: 'Pricing', href: '/#pricing' }
 ]
 
 const toggleMobileMenu = () => {
@@ -66,7 +66,7 @@ const toggleMobileMenu = () => {
         to="/"
         class="flex items-center gap-3 group"
       >
-        <img src="/img/keevia-logo.png" alt="Keevia Logo" class="w-10 h-10 rounded-xl object-cover shadow-[0_0_15px_rgba(249,168,212,0.4)] transition-transform duration-300 group-hover:scale-105" />
+        <NuxtImg src="/img/keevia-logo.png" alt="Keevia Logo" format="webp" width="40" height="40" class="w-10 h-10 rounded-xl object-cover shadow-[0_0_15px_rgba(249,168,212,0.4)] transition-transform duration-300 group-hover:scale-105" loading="eager" preload />
         <span class="font-serif italic font-bold text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 drop-shadow-[0_0_15px_rgba(249,168,212,0.4)] group-hover:from-pink-300 group-hover:to-purple-300 transition-all">Keevia.id</span>
       </NuxtLink>
 
@@ -85,7 +85,7 @@ const toggleMobileMenu = () => {
         </a>
 
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/6287766603301"
           target="_blank"
           class="ml-4 px-6 py-2.5 rounded-full bg-white/10 hover:bg-pink-500 hover:text-white border border-white/20 hover:border-pink-400 text-white text-sm font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]"
         >
@@ -126,7 +126,7 @@ const toggleMobileMenu = () => {
           {{ link.name }}
         </a>
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/6287766603301"
           target="_blank"
           class="px-8 py-3 rounded-full bg-pink-500 text-white text-base font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(236,72,153,0.4)]"
         >

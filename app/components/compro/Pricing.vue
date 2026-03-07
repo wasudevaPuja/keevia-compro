@@ -137,7 +137,7 @@ const packages = [
           </div>
 
           <a
-            href="https://wa.me/6281234567890"
+            :href="`https://wa.me/6287766603301?text=Halo%20Keevia,%20saya%20tertarik%20dengan%20paket%20${pkg.name}`"
             target="_blank"
             :class="[
               'w-full py-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2',
