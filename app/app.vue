@@ -12,6 +12,21 @@ const isProdDomain
 useHead({
   meta: [
     { name: 'google-site-verification', content: 'ffbiX-SQ_vH7N_yy9E5mnIvlOIxXm_ja-GoZ2Vo6Sfg' }
+  ],
+  script: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-97TGYK9NH2',
+      async: true
+    },
+    {
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-97TGYK9NH2');
+      `,
+      type: 'text/javascript'
+    }
   ]
 })
 
