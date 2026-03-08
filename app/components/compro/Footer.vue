@@ -87,12 +87,6 @@
         <p class="text-xs font-light text-white/40 tracking-widest">
           &copy; {{ new Date().getFullYear() }} Keevia.id. All Rights Reserved.
         </p>
-        <p class="text-xs font-light text-white/40 flex items-center gap-1">
-          Crafted with <UIcon
-            name="mdi:heart"
-            class="w-3 h-3 text-pink-500"
-          />
-        </p>
       </div>
     </div>
   </footer>
