@@ -7,10 +7,18 @@ const themes = [
     href: '/showcase/blossom'
   },
   {
+    name: 'Bali',
+    image: '/img/bali_vector_pattern_gold.png',
+    style: 'Luxury / Cultural',
+    href: '/showcase/bali',
+    isNew: true,
+    isHighlighted: true
+  },
+  {
     name: 'Custom Theme',
     image: '/img/custom_showcase.png',
     style: 'Request Your Design',
-    href: '/' // Atau ke link WA/Form
+    href: '/'
   }
 ]
 </script>
@@ -40,13 +48,16 @@ const themes = [
         </a> -->
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <NuxtLink
           v-for="(theme, i) in themes"
           :key="i"
           :to="theme.href"
-          class="group relative rounded-3xl overflow-hidden aspect-[4/5] block cursor-pointer"
+          class="group relative rounded-3xl overflow-hidden aspect-[4/5] block cursor-pointer transition-all duration-500"
+          :class="theme.isHighlighted ? 'ring-2 ring-amber-400 ring-offset-8 ring-offset-[#050505] shadow-[0_0_40px_rgba(251,191,36,0.15)] md:-translate-y-4' : ''"
         >
+          <!-- New Badge -->
+          <div v-if="theme.isNew" class="absolute top-6 right-6 z-20 px-4 py-1.5 bg-amber-400 text-black text-[10px] uppercase tracking-widest font-bold rounded-full shadow-[0_4px_20px_rgba(251,191,36,0.3)]">New</div>
           <NuxtImg
             :src="theme.image"
             :alt="theme.name"
