@@ -2,12 +2,12 @@
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-// ─── Rustic Sage Palette ────────────────────────────
-// bg:      #1A2318 (Deep Forest)
-// accent:  #C1604A (Terracotta)
-// green:   #4A7C6F (Sage)
-// text:    #F5EDD7 (Ivory)
-// muted:   #A8967E (Warm Taupe)
+
+
+
+
+
+
 
 const isOpened = ref(false)
 const scrollY = ref(0)
@@ -62,13 +62,11 @@ onUnmounted(() => {
   window.removeEventListener('deviceorientation', onDeviceOrientation)
 })
 
-// ─── 3D SCROLL ZOOM (berbeda dari popup.vue yang pakai rotateX) ───────
-// Foto mulai dari scale kecil + jauh (translateZ negatif), lalu zoom in mendekati
 const photoProgress = computed(() => Math.min(scrollY.value / 700, 1))
 
 const photoScale = computed(() => {
   if (!isOpened.value) return 0.3
-  return 0.3 + photoProgress.value * 0.7  // 0.3 → 1.0
+  return 0.3 + photoProgress.value * 0.7
 })
 
 const photoOpacity = computed(() => {
@@ -78,21 +76,21 @@ const photoOpacity = computed(() => {
 
 const photoBlur = computed(() => {
   if (!isOpened.value) return 10
-  return Math.max(0, 10 - photoProgress.value * 10)  // blur 10 → 0
+  return Math.max(0, 10 - photoProgress.value * 10)
 })
 
 const photoTransform = computed(() => {
-  const gyroRotZ = isOpened.value ? tiltY.value * 0.3 : 0  // subtle Z rotation from gyro
+  const gyroRotZ = isOpened.value ? tiltY.value * 0.3 : 0
   const gyroRotX = isOpened.value ? tiltX.value * 0.2 : 0
   const scale = photoScale.value
   return `perspective(1400px) scale(${scale}) rotateZ(${gyroRotZ}deg) rotateX(${gyroRotX}deg)`
 })
 
-// ─── Parallax layers ──────────────────────────────────────────────────
+
 const bgFar = computed(() => `scale(${1.1 + scrollY.value * 0.0003}) translateY(${scrollY.value * 0.12}px)`)
 const bgNear = computed(() => `translateY(-${scrollY.value * 0.06}px)`)
 
-// ─── Falling Leaves ───────────────────────────────────────────────────
+
 const leaves = Array.from({ length: 12 }, (_, i) => ({
   id: i,
   left: `${(i * 8.5 + 3) % 100}%`,
@@ -103,7 +101,7 @@ const leaves = Array.from({ length: 12 }, (_, i) => ({
   swing: `${(i % 2 === 0 ? 1 : -1) * (15 + i % 20)}px`,
 }))
 
-// ─── Data ─────────────────────────────────────────────────────────────
+
 const route = useRoute()
 const guestName = computed(() => (route.query.to as string) || 'Tamu Undangan')
 const audioControl = inject('audioControl') as any
@@ -158,13 +156,11 @@ const openInvitation = async () => {
       <UIcon name="mdi:arrow-left" class="w-4 h-4" /> Batal
     </NuxtLink>
 
-    <!-- ════════════════════════════════════════════════════
-         COVER — SPLIT SCREEN (kiri foto + kanan teks)
-    ════════════════════════════════════════════════════ -->
+    
     <transition name="fade-cover">
       <div v-if="!isOpened" class="fixed inset-0 z-50 flex overflow-hidden">
 
-        <!-- LEFT — Photo Panel (gyro reactive) -->
+        
         <div
           class="relative w-full md:w-[45%] h-full overflow-hidden will-change-transform"
           :style="{ transform: `translateX(${tiltY * 1.5}px) translateY(${tiltX * 0.8}px)`, transition: 'transform 0.9s cubic-bezier(0.23,1,0.32,1)' }"
@@ -180,12 +176,12 @@ const openInvitation = async () => {
           </div>
         </div>
 
-        <!-- RIGHT — Text Panel -->
+        
         <div
           class="hidden md:flex flex-col justify-center px-12 lg:px-16 w-[55%] relative"
           style="background: linear-gradient(135deg, #1A2318 0%, #1E2A1C 100%);"
         >
-          <!-- Falling leaves on right panel -->
+          
           <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <span
               v-for="l in leaves.slice(0,6)"
@@ -232,7 +228,7 @@ const openInvitation = async () => {
           </div>
         </div>
 
-        <!-- Mobile: Open button overlay -->
+        
         <div class="md:hidden fixed bottom-8 left-0 right-0 flex flex-col items-center z-[60] gap-4">
           <div class="p-5 rounded-2xl border text-center mx-6" style="background: rgba(17,26,16,0.8); border-color: rgba(74,124,111,0.2); backdrop-filter: blur(16px);">
             <p class="text-[9px] tracking-widest uppercase mb-1" style="color:#A8967E;">Kepada Yang Terhormat</p>
@@ -249,18 +245,16 @@ const openInvitation = async () => {
       </div>
     </transition>
 
-    <!-- ════════════════════════════════════════════════════
-         MAIN CONTENT — After Opening
-    ════════════════════════════════════════════════════ -->
+    
     <div v-show="isOpened" class="w-full">
 
-      <!-- Multi-layer parallax BG -->
+      
       <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute inset-0 will-change-transform" :style="{ transform: bgFar }">
           <img src="/couple-bg2.png" class="w-full h-full object-cover" style="opacity:0.12; filter: blur(4px) saturate(0.6) brightness(0.5);" />
         </div>
         <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 15%, #1A2318 100%);"></div>
-        <!-- Falling leaves BG -->
+        
         <div class="absolute inset-0 overflow-hidden" :style="{ transform: bgNear }">
           <span
             v-for="l in leaves.slice(0,8)"
@@ -271,7 +265,7 @@ const openInvitation = async () => {
         </div>
       </div>
 
-      <!-- ── SCROLL ZOOM PHOTO (fixed center) ── -->
+      
       <div class="fixed inset-0 pointer-events-none flex items-center justify-center z-10">
         <div
           class="relative w-56 md:w-72 h-[380px] md:h-[480px] rounded-[2.5rem] overflow-hidden transform-gpu"
@@ -284,7 +278,7 @@ const openInvitation = async () => {
             border: '1px solid rgba(74,124,111,0.25)',
           }"
         >
-          <!-- Gyro shine -->
+          
           <div
             class="absolute inset-0 z-20 pointer-events-none"
             :style="{
@@ -301,7 +295,7 @@ const openInvitation = async () => {
         </div>
       </div>
 
-      <!-- Scroll hint -->
+      
       <div class="absolute top-[80vh] w-full text-center z-20 pointer-events-none animate-bounce">
         <p class="text-[9px] tracking-widest uppercase mb-2" style="color: rgba(168,150,126,0.5);">Scroll untuk melihat keajaiban</p>
         <UIcon name="mdi:chevron-double-down" class="w-5 h-5 mx-auto" style="color: rgba(74,124,111,0.4);" />
@@ -309,18 +303,16 @@ const openInvitation = async () => {
 
       <div class="h-[100vh]" />
 
-      <!-- ════════════════════════════════
-           TIMELINE SECTIONS (vertical left line)
-      ════════════════════════════════ -->
+      
       <div class="w-full relative z-20 py-24">
         <div class="max-w-6xl mx-auto px-4">
 
-          <!-- Timeline vertical line (desktop) -->
+          
           <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2" style="background: linear-gradient(to bottom, transparent, rgba(74,124,111,0.3) 10%, rgba(74,124,111,0.3) 90%, transparent);"></div>
 
           <div class="space-y-[35vh] md:space-y-[50vh]">
 
-            <!-- TIMELINE ITEM 1 — Ceremony (RIGHT) -->
+            
             <div class="reveal-item timeline-right">
               <div class="timeline-dot">
                 <div class="dot-inner" style="background:#C1604A;"></div>
@@ -351,7 +343,7 @@ const openInvitation = async () => {
               </div>
             </div>
 
-            <!-- TIMELINE ITEM 2 — Gift (LEFT) -->
+            
             <div class="reveal-item timeline-left">
               <div class="timeline-dot">
                 <div class="dot-inner" style="background:#4A7C6F;"></div>
@@ -376,7 +368,7 @@ const openInvitation = async () => {
               </div>
             </div>
 
-            <!-- TIMELINE ITEM 3 — RSVP (RIGHT) -->
+            
             <div class="reveal-item timeline-right">
               <div class="timeline-dot">
                 <div class="dot-inner" style="background:#C1604A;"></div>
@@ -417,7 +409,7 @@ const openInvitation = async () => {
               </div>
             </div>
 
-            <!-- TIMELINE ITEM 4 — Ucapan (LEFT) -->
+            
             <div class="reveal-item timeline-left">
               <div class="timeline-dot">
                 <div class="dot-inner" style="background:#4A7C6F;"></div>
@@ -447,7 +439,7 @@ const openInvitation = async () => {
           </div>
         </div>
 
-        <!-- Gallery -->
+        
         <div class="max-w-6xl mx-auto px-4 pt-[28vh] pb-[15vh] reveal-item">
           <div class="text-center mb-12">
             <p class="text-[9px] tracking-[0.6em] uppercase mb-3" style="color:#C1604A;">Gallery</p>
@@ -476,7 +468,7 @@ const openInvitation = async () => {
         </div>
       </div>
 
-      <!-- Footer -->
+      
       <footer class="py-24 text-center relative z-50" style="background: #0D1510; border-top: 1px solid rgba(74,124,111,0.12);">
         <div class="h-px w-28 mx-auto mb-16" style="background: linear-gradient(to right, transparent, #C1604A, transparent);"></div>
         <h2 class="text-3xl mb-4" style="font-family:'Georgia',serif; color:#F5EDD7; font-weight:300; font-style:italic; line-height:1.6;">Terima Kasih Atas Doa<br>& Kehadiran Anda.</h2>
@@ -495,11 +487,11 @@ const openInvitation = async () => {
 </template>
 
 <style>
-/* ── Transitions ── */
+
 .fade-cover-enter-active, .fade-cover-leave-active { transition: opacity 1.2s ease; }
 .fade-cover-enter-from, .fade-cover-leave-to { opacity: 0; }
 
-/* ── Falling Leaves ── */
+
 @keyframes leafFall {
   0%   { transform: translateY(-20px) rotate(0deg) translateX(0px); opacity: 0; }
   10%  { opacity: 1; }
@@ -516,7 +508,7 @@ const openInvitation = async () => {
 .leaf { animation-timing-function: ease-in-out; }
 .leaf-slow { animation-timing-function: ease-in-out; }
 
-/* ── Scroll Reveal ── */
+
 @keyframes revealFade {
   from { opacity: 0; transform: translateY(45px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -528,14 +520,14 @@ const openInvitation = async () => {
 }
 .reveal-item.visible { animation-play-state: running; }
 
-/* ── Timeline Layout ── */
+
 .timeline-right, .timeline-left {
   position: relative;
   display: flex;
   align-items: flex-start;
 }
 
-/* Dot on the center line */
+
 .timeline-dot {
   display: none;
 }
@@ -571,11 +563,11 @@ const openInvitation = async () => {
   border-radius: 2rem;
 }
 
-/* ── Wish slide transition ── */
+
 .wish-slide-enter-active { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
 .wish-slide-enter-from   { opacity: 0; transform: translateY(-14px); }
 
-/* ── Scrollbar hide ── */
+
 .scrollbar-none::-webkit-scrollbar { display: none; }
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 </style>

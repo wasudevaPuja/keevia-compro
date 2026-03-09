@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full min-h-[100dvh] bg-[#0a0a0a] text-white">
-    <!-- TOMBOL KEMBALI -->
+    
     <NuxtLink
       to="/"
       class="fixed top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20 text-white/90 hover:text-white hover:bg-black/50 hover:scale-105 transition-all duration-300 font-light text-sm tracking-wide shadow-lg"
@@ -9,9 +9,9 @@
       Kembali
     </NuxtLink>
 
-    <!-- COVER SECTION: HERO & INVITATION LETTER -->
+    
     <section class="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden transition-all duration-1000">
-      <!-- Background Image -->
+      
       <NuxtImg
         src="/img/bali_vector_pattern_gold.png"
         class="absolute inset-0 w-full h-full object-cover scale-105"
@@ -21,10 +21,10 @@
         loading="lazy"
       />
 
-      <!-- Elegant Overlays -->
+      
       <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a]" />
 
-      <!-- Content -->
+      
       <div
         class="relative z-10 flex flex-col items-center text-center px-6 max-w-2xl mx-auto"
       >
@@ -37,7 +37,7 @@
         <p class="text-sm tracking-[0.25em] uppercase text-white/80 mb-12">{{ t("dateFull") }}</p>
 
         <div class="relative w-full max-w-sm flex flex-col items-center">
-          <!-- Invitation Box -->
+          
           <div
             class="w-full p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-1000"
             :class="isOpen ? 'opacity-0 scale-90 pointer-events-none absolute' : 'opacity-100 scale-100 relative delay-300'"
@@ -56,7 +56,7 @@
             >{{ t("openBtn") }}</button>
           </div>
 
-          <!-- Scroll Down Indicator -->
+          
           <div
             class="transition-all duration-1000 mt-8"
             :class="isOpen ? 'opacity-100 translate-y-0 relative delay-500' : 'opacity-0 translate-y-10 absolute pointer-events-none'"
@@ -70,13 +70,13 @@
       </div>
     </section>
 
-    <!-- MAIN SCROLL CONTENT -->
+    
     <div
       v-if="isOpen"
       class="relative z-20 w-full animate-fade-in-up"
     >
 
-    <!-- OPENING GREETING -->
+    
       <section class="w-full py-16 px-6 text-center max-w-2xl mx-auto">
         <div class="opacity-0 transition-all ease-out transform-gpu scroll-animate translate-y-10 duration-[1000ms]">
           <h2 class="text-2xl font-serif text-amber-200 mb-6 font-light">Om Swastyastu</h2>
@@ -86,20 +86,20 @@
         </div>
       </section>
 
-      <!-- THE COUPLE -->
+      
       <section class="w-full py-16 md:py-24 px-6">
         <div class="max-w-6xl mx-auto">
           <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
-            <!-- GROOM -->
+            
             <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] text-center w-full max-w-xs md:max-w-md">
-              <!-- Ornament Accent -->
+              
               <div class="flex justify-center mb-6">
                 <svg class="w-24 h-10 text-amber-300/80 drop-shadow-md" viewBox="0 0 100 30" fill="currentColor">
                   <path d="M50,0 C55,10 65,15 85,15 C65,15 55,20 50,30 C45,20 35,15 15,15 C35,15 45,10 50,0 Z M50,5 C53,11 58,13 70,13 C58,13 53,16 50,23 C47,16 42,13 30,13 C42,13 47,11 50,5 Z" />
                 </svg>
               </div>
               <div class="relative w-72 h-[360px] md:w-80 md:h-[400px] mx-auto mb-8 rounded-[40px] overflow-hidden border border-white/10 group">
-                <!-- Carousel Maps -->
+                
                 <transition-group name="fade">
                   <NuxtImg
                     :key="groomImgIndex"
@@ -118,16 +118,16 @@
 
             <div class="text-amber-200 font-serif font-light text-6xl md:text-8xl opacity-0 transition-all ease-out scroll-animate scale-50 duration-[1000ms] delay-200">&</div>
 
-            <!-- BRIDE -->
+            
             <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-100 text-center w-full max-w-xs md:max-w-md">
-              <!-- Ornament Accent -->
+              
               <div class="flex justify-center mb-6">
                 <svg class="w-24 h-10 text-amber-300/80 drop-shadow-md" viewBox="0 0 100 30" fill="currentColor">
                   <path d="M50,0 C55,10 65,15 85,15 C65,15 55,20 50,30 C45,20 35,15 15,15 C35,15 45,10 50,0 Z M50,5 C53,11 58,13 70,13 C58,13 53,16 50,23 C47,16 42,13 30,13 C42,13 47,11 50,5 Z" />
                 </svg>
               </div>
               <div class="relative w-72 h-[360px] md:w-80 md:h-[400px] mx-auto mb-8 rounded-[40px] overflow-hidden border border-white/10 group">
-                <!-- Carousel Maps -->
+                
                 <transition-group name="fade">
                   <NuxtImg
                     :key="brideImgIndex"
@@ -147,7 +147,7 @@
         </div>
       </section>
 
-      <!-- INTRO VERSE -->
+      
       <section class="w-full py-20 px-6 text-center max-w-3xl mx-auto">
         <div class="opacity-0 transition-all ease-out transform-gpu scroll-animate translate-y-10 duration-[1000ms]">
           <UIcon name="mdi:leaf-maple" class="w-8 h-8 text-amber-300/50 mx-auto mb-6" />
@@ -160,7 +160,7 @@
       </section>
 
 
-      <!-- EVENT DETAILS & COUNTDOWN -->
+      
       <section class="relative w-full py-24 px-6 overflow-hidden">
         <div class="absolute inset-0 pointer-events-none">
           <div class="absolute top-0 right-[-20%] w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px]" />
@@ -173,21 +173,21 @@
             <p class="text-4xl md:text-5xl font-serif font-light text-white">{{ t("dateMain") }}</p>
           </div>
 
-          <!-- Countdown -->
+          
           <div class="grid grid-cols-4 gap-4 max-w-xl mx-auto mb-20 opacity-0 transition-all ease-out scroll-animate scale-95 duration-[1000ms] delay-200">
             <div v-for="(val, key) in countdown" :key="key" class="flex flex-col items-center justify-center p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
               <span class="text-3xl md:text-5xl font-light font-serif text-white">{{ val }}</span>
               <span class="text-[9px] md:text-xs tracking-widest uppercase text-amber-200/70 mt-2">{{ t(key) }}</span>
             </div>
-            <!-- Cal Button -->
+            
             <div class="col-span-4 mt-8">
               <a href="/save-the-date.ics" download class="inline-flex items-center gap-2 px-8 py-3 bg-amber-200 hover:bg-amber-300 text-[#0a0a0a] rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-[0_0_20px_rgba(251,191,36,0.3)]"><UIcon name="mdi:calendar-check" class="w-4 h-4" /> {{ t("saveToCal") }}</a>
             </div>
           </div>
 
-          <!-- Location Cards -->
+          
           <div class="grid md:grid-cols-2 gap-8 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-300">
-            <!-- Event 1 -->
+            
             <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md hover:bg-white/10 transition-colors text-left relative overflow-hidden">
                <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl" />
                <h3 class="text-2xl font-serif text-white mb-6 pb-4 border-b border-white/10">{{ t("pemberkatanTitle") }}</h3>
@@ -198,7 +198,7 @@
                <a href="#" target="_blank" class="mt-8 inline-flex items-center gap-2 text-xs tracking-widest uppercase font-medium text-amber-200 hover:text-amber-300"><UIcon name="mdi:navigation" class="w-4 h-4"/> {{ t("openMap") }}</a>
             </div>
 
-            <!-- Event 2 -->
+            
             <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md hover:bg-white/10 transition-colors text-left relative overflow-hidden">
                <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl" />
                <h3 class="text-2xl font-serif text-white mb-6 pb-4 border-b border-white/10">{{ t("resepsiTitle") }}</h3>
@@ -212,7 +212,7 @@
         </div>
       </section>
 
-      <!-- RSVP & WISHES -->
+      
       <section class="w-full py-24 px-6 bg-[#111]">
         <div class="max-w-4xl mx-auto">
            <div class="text-center mb-16 opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms]">
@@ -222,7 +222,7 @@
            </div>
 
            <div class="grid md:grid-cols-2 gap-8">
-              <!-- Form -->
+              
               <form class="opacity-0 transition-all ease-out scroll-animate translate-x-10 duration-[1000ms] space-y-5 bg-[#0a0a0a] border border-white/10 rounded-3xl p-8">
                 <div>
                   <label class="block text-[10px] tracking-widest uppercase text-amber-200/80 mb-2 ml-1">{{ t("fullName") }}</label>
@@ -248,7 +248,7 @@
                 <button type="submit" class="w-full py-4 bg-amber-200 hover:bg-amber-300 text-black font-semibold uppercase tracking-widest text-xs rounded-2xl mt-4 transition-all shadow-[0_4px_20px_rgba(251,191,36,0.15)]">{{ t("sendBtn") }}</button>
               </form>
 
-              <!-- Wishes List -->
+              
               <div class="opacity-0 transition-all ease-out scroll-animate -translate-x-10 duration-[1000ms] delay-200 bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 flex flex-col h-full max-h-[600px]">
                  <h3 class="text-lg font-serif text-white mb-6 pb-4 border-b border-white/10 flex items-center justify-center gap-3"><UIcon name="mdi:message-heart" class="text-amber-300"/> {{ t("wishesTitle") }}</h3>
                  <div class="flex-1 flex items-center justify-center text-center text-white/40 text-sm font-light pt-10">
@@ -262,7 +262,7 @@
         </div>
       </section>
 
-      <!-- WEDDING GIFT -->
+      
       <section class="w-full py-24 px-6 text-center">
          <div class="max-w-3xl mx-auto">
             <div class="opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms] mb-16">
@@ -272,7 +272,7 @@
            </div>
 
            <div class="grid sm:grid-cols-2 gap-6 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
-             <!-- Bank -->
+             
              <div class="bg-gradient-to-br from-blue-900/20 to-black border border-white/10 rounded-3xl p-8 text-left hover:border-blue-500/30 transition-colors">
                 <UIcon name="mdi:bank-outline" class="w-8 h-8 text-blue-300 mb-6" />
                 <h3 class="text-xl font-serif text-white mb-1">BCA</h3>
@@ -281,7 +281,7 @@
                 <button @click="copyText('1234567890')" class="w-full py-3 bg-white/10 hover:bg-white/20 rounded-xl text-xs uppercase tracking-widest font-medium text-white transition-all flex items-center justify-center gap-2"><UIcon name="mdi:content-copy" class="w-4 h-4"/> {{ t("copyAcc") }}</button>
              </div>
              
-             <!-- Physical -->
+             
              <div class="bg-gradient-to-br from-amber-900/10 to-black border border-white/10 rounded-3xl p-8 text-left hover:border-amber-500/30 transition-colors">
                 <UIcon name="mdi:gift-outline" class="w-8 h-8 text-amber-300 mb-6" />
                 <h3 class="text-xl font-serif text-white mb-1">{{ t("physGift") }}</h3>
@@ -292,7 +292,7 @@
          </div>
       </section>
 
-      <!-- GALLERY / OUR MEMORIES -->
+      
       <section class="w-full py-24 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto">
            <div class="text-center mb-16 opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms]">
@@ -301,7 +301,7 @@
            </div>
            
            <div class="flex items-start gap-4 sm:gap-6 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
-             <!-- Left Column -->
+             
              <div class="flex-1 flex flex-col gap-4 sm:gap-6">
                 <div v-for="i in 3" :key="'l'+i" class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-lg" @click="openLightbox('/img/bali_vector_pattern_gold.png')">
                    <NuxtImg src="/img/bali_vector_pattern_gold.png" :class="['w-full object-cover transition-transform duration-700 group-hover:scale-110', i === 2 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
@@ -311,7 +311,7 @@
                 </div>
              </div>
              
-             <!-- Right Column (Shifted Down) -->
+             
              <div class="flex-1 flex flex-col gap-4 sm:gap-6 mt-12 sm:mt-24">
                 <div v-for="i in 3" :key="'r'+i" class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-lg" @click="openLightbox('/img/bali_vector_pattern_gold.png')">
                    <NuxtImg src="/img/bali_vector_pattern_gold.png" :class="['w-full object-cover transition-transform duration-700 group-hover:scale-110', i === 1 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
@@ -330,7 +330,7 @@
            <p class="text-2xl font-serif text-white italic">Romeo & Juliet</p>
         </div>
         
-        <!-- Bottom Rights (Always at Bottom) -->
+        
         <div class="relative z-20 text-center mt-auto pt-16 text-white/40 text-xs md:text-sm">
           <div class="flex justify-center mb-6">
             <a
@@ -353,7 +353,7 @@
 </template>
 
 <style>
-/* CSS transition for fading images */
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1.5s ease;
@@ -362,7 +362,7 @@
 .fade-leave-to {
   opacity: 0;
 }
-/* Ensure absolute position doesn't break layout */
+
 .fade-leave-active {
   position: absolute;
 }
@@ -374,7 +374,7 @@ import { ref, onMounted, computed, inject, watch, nextTick, onUnmounted } from '
 import { useRoute } from 'vue-router'
 import { useNuxtApp } from '#app'
 
-// Daftar gambar
+
 const images = ref<string[]>([
   '/img/blossom_showcase.png',
   '/img/blossom_showcase.png',
@@ -400,12 +400,12 @@ const prevSlide = () => {
     = (current.value - 1 + images.value.length) % images.value.length
 }
 
-// Refs untuk thumbnail container & items
+
 const rightPanel = ref<HTMLElement | null>(null)
 const thumbContainer = ref<HTMLElement | null>(null)
 const thumbs = ref<HTMLElement[]>([])
 
-// Scroll thumbnail aktif ke tengah
+
 const scrollThumbIntoView = () => {
   nextTick(() => {
     if (!thumbContainer.value || !thumbs.value.length) return
@@ -416,7 +416,7 @@ const scrollThumbIntoView = () => {
     const containerRect = container.getBoundingClientRect()
     const thumbRect = activeThumb.getBoundingClientRect()
 
-    // Calculate actual center taking into account scroll position
+
     const scrollLeftTo = activeThumb.offsetLeft - (containerRect.width / 2) + (activeThumb.offsetWidth / 2)
     container.scrollTo({
       left: scrollLeftTo,
@@ -425,13 +425,13 @@ const scrollThumbIntoView = () => {
   })
 }
 
-// Watch current slide
+
 watch(current, () => {
   scrollThumbIntoView()
 })
 
 
-// Simple Lightbox
+
 const openLightbox = (src: string) => {
   const lightbox = document.createElement('div')
   lightbox.className = 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center cursor-pointer'
@@ -440,7 +440,7 @@ const openLightbox = (src: string) => {
   document.body.appendChild(lightbox)
 }
 
-// AUDIO CONTROL
+
 const audioControl = inject('audioControl') as {
   isPlaying: Ref<boolean>
   toggleAudio: () => void
@@ -624,7 +624,7 @@ const guestName = computed(() => (route.query.to as string) || 'Tamu Undangan')
 
 const isOpen = ref(false)
 
-// Carousel setup
+
 const groomImages = ref([
   '/img/bali_vector_pattern_gold.png',
   '/img/bali_vector_pattern.png'
@@ -653,7 +653,7 @@ const openInvitation = () => {
     audioControl.isPlaying.value = true
   }
 
-  // Start image carousel
+
   carouselInterval = setInterval(() => {
     groomImgIndex.value = (groomImgIndex.value + 1) % groomImages.value.length
     brideImgIndex.value = (brideImgIndex.value + 1) % brideImages.value.length
@@ -661,7 +661,7 @@ const openInvitation = () => {
 
   startCountdown()
 
-  // Force play all background videos upon user interaction
+
   document.querySelectorAll('video').forEach(vid => {
     const playPromise = vid.play()
     if (playPromise !== undefined) {
@@ -670,13 +670,13 @@ const openInvitation = () => {
   })
 }
 
-// Start interval if open
+
 watch(isOpen, (val) => {
   if (val) {
     _interval = window.setInterval(nextSlide, 4000)
   } else {
     clearInterval(_interval)
-    current.value = 0 // reset ke data pertama
+    current.value = 0
   }
 })
 
@@ -695,7 +695,7 @@ const initScrollAnimations = () => {
 }
 
 onMounted(() => {
-  // Force play videos
+
   document.querySelectorAll('video').forEach(vid => {
     const playPromise = vid.play()
     if (playPromise !== undefined) {
@@ -707,17 +707,17 @@ onMounted(() => {
     initScrollAnimations()
   }, 500)
 
-  document.body.classList.add('overflow-hidden') // Require visitor to open invitation to scroll
+  document.body.classList.add('overflow-hidden')
 
   
 
-  // Interval dipindahkan ke watcher / observer
+
   if (thumbContainer.value) {
-    // // Manual select removed // removed manual select
+
   }
 })
 
-// Countdown
+
 const countdown = ref({
   days: '00',
   hours: '00',
@@ -745,7 +745,7 @@ const startCountdown = () => {
   }, 1000)
 }
 
-// Format tanggal
+
 const formatDate = (d: Date) => new Date(d).toLocaleString('id-ID', {
   dateStyle: 'medium',
   timeStyle: 'short'
@@ -773,7 +773,7 @@ const showToast = (message: string, _isError = false) => {
   `
   document.body.appendChild(toast)
 
-  // otomatis fade out dan hilang setelah 2 detik
+
   setTimeout(() => {
     toast.style.opacity = '0'
     toast.style.transform = 'translate(-50%, -20px)'
@@ -791,7 +791,7 @@ html, body {
 
 .scroll-animate {
   will-change: opacity, transform;
-  transform: translateZ(0); /* Hardware acceleration iOS */
+  transform: translateZ(0); 
   backface-visibility: hidden;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full min-h-[100dvh]">
-    <!-- TOMBOL KEMBALI -->
+    
     <NuxtLink
       to="/"
       class="fixed top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/30 backdrop-blur-md rounded-full border border-white/20 text-white/90 hover:text-white hover:bg-black/50 hover:scale-105 transition-all duration-300 font-light text-sm tracking-wide shadow-lg"
@@ -9,9 +9,9 @@
       Kembali
     </NuxtLink>
 
-    <!-- LEFT PANEL (80%) -->
+    
     <div class="hidden md:block flex-1 sticky top-0 self-start h-[100dvh] md:h-screen relative overflow-hidden">
-      <!-- Background Image -->
+      
 
       <NuxtImg
         src="/img/vector-hero.svg"
@@ -22,17 +22,17 @@
         loading="lazy"
       />
 
-      <!-- Elegant Overlay -->
+      
 
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
       <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
 
-      <!-- Content -->
+      
 
       <div
         class="absolute bottom-16 left-16 text-white z-10 max-w-xl"
       >
-        <!-- Small Label -->
+        
         <div
           class="flex items-center gap-4 mb-4"
         >
@@ -40,47 +40,32 @@
           <p class="tracking-[0.35em] text-xs uppercase text-pink-200">{{ t("weddingOf") }}</p>
         </div>
 
-        <!-- Names -->
+        
         <h1 class="text-6xl lg:text-7xl font-light font-serif leading-tight tracking-wide">
           Romeo <span class="text-pink-200">&</span><br>
           Juliet
         </h1>
 
-        <!-- Date -->
+        
         <p class="mt-6 text-sm tracking-[0.25em] uppercase text-white/80">{{ t("dateFull") }}</p>
       </div>
     </div>
 
-    <!-- RIGHT PANEL (20%) -->
+    
     <div
       :class="[
         'relative shrink-0 w-full md:w-[400px] lg:w-[450px] xl:w-[500px] max-w-full h-[100dvh] md:h-screen transition-all duration-700 z-20 shadow-[-10px_0_30px_rgba(0,0,0,0.5)] bg-[#1a1a1a]',
         isOpen ? 'overflow-x-hidden overflow-y-auto' : 'overflow-hidden'
       ]"
     >
-      <!-- BACKGROUND VIDEO UTAMA -->
-      <!-- <div class="absolute inset-0 -z-10">
-        <video
-          poster="/img/vector-hero.svg"
-          autoplay
-          muted
-          loop
-          playsinline
-          class="absolute inset-0 w-full h-full object-cover -z-10"
-        >
-          <source
-            src="/video/wedding-video.mp4"
-            type="video/mp4"
-          >
-        </video>
-        <div class="absolute inset-0 bg-black/50" />
-      </div> -->
+      
+      
 
-      <!-- HERO CONTENT -->
+      
       <div
         class="relative z-10 h-[100dvh] md:h-screen flex flex-col justify-between text-white text-center px-8 py-10 pb-20 md:pb-10"
       >
-        <!-- Heading -->
+        
         <div>
           <p class="tracking-[0.4em] text-[11px] mb-4 uppercase text-white/80">{{ t("weddingOf") }}</p>
 
@@ -91,7 +76,7 @@
           <p class="mt-5 text-sm text-white/80 tracking-wide">{{ t("dateFull") }}</p>
         </div>
 
-        <!-- Invitation Box -->
+        
         <div class="max-w-md mx-auto text-center">
           <template v-if="!isOpen">
             <p class="text-xs tracking-[0.3em] uppercase text-white/70">{{ t("toYth") }}</p>
@@ -116,16 +101,16 @@
         </div>
       </div>
 
-      <!-- SCROLL CONTENT -->
+      
       <div
         v-if="isOpen"
         class="relative z-10 bg-transparent text-white w-full"
       >
-        <!-- MEMPELAI (The Couple) -->
+        
         <section class="relative w-full bg-[#1a1a1a]">
-          <!-- Vertical Layout (Stacked) -->
+          
           <div class="flex flex-col w-full text-left">
-            <!-- MEMPELAI PRIA -->
+            
             <div class="relative w-full min-h-[100dvh] md:h-screen group overflow-hidden">
               <NuxtImg
                 src="/img/vector-hero.svg"
@@ -136,11 +121,11 @@
                 sizes="sm:100vw md:50vw lg:50vw"
                 loading="lazy"
               />
-              <!-- Elegant Overlay Gradients -->
+              
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
               <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
 
-              <!-- Content -->
+              
               <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-12 z-10 w-full mx-auto">
                 <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] space-y-4 max-w-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
                 >
@@ -158,7 +143,7 @@
                     <p class="text-base md:text-lg text-white font-medium">{{ t("parentsGroom") }}</p>
                   </div>
 
-                  <!-- Sosial Media -->
+                  
                   <div
                     class="pt-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100"
                   >
@@ -178,7 +163,7 @@
               </div>
             </div>
 
-            <!-- MEMPELAI WANITA -->
+            
             <div class="relative w-full min-h-[100dvh] md:h-screen group overflow-hidden">
               <NuxtImg
                 src="/img/vector-hero.svg"
@@ -189,11 +174,11 @@
                 sizes="sm:100vw md:50vw lg:50vw"
                 loading="lazy"
               />
-              <!-- Elegant Overlay Gradients -->
+              
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
               <div class="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent" />
 
-              <!-- Content (Aligned right on all screens to balance the Groom) -->
+              
               <div
                 class="absolute inset-0 flex flex-col justify-end p-8 md:p-12 z-10 items-end text-right w-full mx-auto"
               >
@@ -213,7 +198,7 @@
                     <p class="text-base md:text-lg text-white font-medium">{{ t("parentsGroom") }}</p>
                   </div>
 
-                  <!-- Sosial Media -->
+                  
                   <div
                     class="pt-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100"
                   >
@@ -235,27 +220,15 @@
           </div>
         </section>
 
-        <!-- JOURNEY OF LOVE -->
+        
         <section class="min-h-[100dvh] md:min-h-screen relative flex flex-col justify-center py-16 md:py-24">
           <div class="absolute inset-0 -z-10">
-            <!-- <video
-          poster="/img/vector-hero.svg"
-              autoplay
-              muted
-              loop
-              playsinline
-              class="w-full h-full object-cover filter brightness-75 contrast-125"
-            >
-              <source
-                src="/video/wedding-video.mp4"
-                type="video/mp4"
-              >
-            </video> -->
+            
             <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
           </div>
 
           <div class="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12">
-            <!-- Header -->
+            
             <div class="opacity-0 transition-all ease-out transform-gpu scroll-animate -translate-y-10 duration-[700ms] text-center space-y-4 mb-16 md:mb-20">
               <div class="flex justify-center mb-4">
                 <i class="mdi mdi-flower-tulip-outline text-4xl text-pink-300 animate-pulse" />
@@ -264,23 +237,23 @@
               <h2 class="text-4xl lg:text-5xl font-light text-white font-serif italic">{{ t("journeyTitle") }}</h2>
             </div>
 
-            <!-- Timeline -->
+            
             <div class="relative">
-              <!-- Timeline Center Line -->
-              <!-- Center line removed for mobile-only single column -->
+              
+              
 
               <div class="space-y-8">
-                <!-- Event 1 -->
+                
                 <div class="relative flex flex-col items-center group">
                   
-                  <!-- Left Date/Title for Desktop -->
+                  
                   <div class="w-full text-center mb-4 space-y-2">
                     <div
                       class="inline-block px-4 py-1.5 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase mb-2"
                     >{{ t("ch1DateFull") }}</div>
                     
                   </div>
-                  <!-- Right Content -->
+                  
                   <div class="w-full">
                     <div class="opacity-0 transition-all transform-gpu ease-out scroll-animate translate-y-10 duration-[700ms] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/15 shadow-xl relative overflow-hidden group-hover:-translate-y-2 text-left"
                     >
@@ -293,17 +266,17 @@
                   </div>
                 </div>
 
-                <!-- Event 2 -->
+                
                 <div class="relative flex flex-col items-center group">
                   
-                  <!-- Right Date/Title for Desktop -->
+                  
                   <div class="w-full text-center mb-4 space-y-2">
                     <div
                       class="inline-block px-4 py-1.5 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase mb-2"
                     >{{ t("ch2DateFull") }}</div>
                     
                   </div>
-                  <!-- Left Content -->
+                  
                   <div class="w-full">
                     <div class="opacity-0 transition-all transform-gpu ease-out scroll-animate translate-y-10 duration-[700ms] bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/15 shadow-xl relative overflow-hidden group-hover:-translate-y-2 text-left"
                     >
@@ -316,17 +289,17 @@
                   </div>
                 </div>
 
-                <!-- Event 3 -->
+                
                 <div class="relative flex flex-col items-center group">
                   
-                  <!-- Left Date/Title for Desktop -->
+                  
                   <div class="w-full text-center mb-4 space-y-2">
                     <div
                       class="inline-block px-4 py-1.5 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase mb-2"
                     >{{ t("ch3DateFull") }}</div>
                     
                   </div>
-                  <!-- Right Content -->
+                  
                   <div class="w-full">
                     <div
                       class="opacity-0 transition-all transform-gpu ease-out scroll-animate translate-y-10 duration-[700ms] bg-gradient-to-br from-pink-500/20 to-white/5 backdrop-blur-md border border-pink-300/30 rounded-2xl p-6 hover:border-pink-300/60 shadow-[0_8px_32px_rgba(249,168,212,0.15)] relative overflow-hidden group-hover:-translate-y-2 text-left"
@@ -344,35 +317,23 @@
           </div>
         </section>
 
-        <!-- SAVE OUR DATE -->
+        
         <section class="min-h-[100dvh] md:min-h-screen relative flex flex-col justify-center py-16 md:py-24">
-          <!-- Background Video with elegant overlay -->
+          
           <div class="absolute inset-0 -z-10 bg-[#1a1a1a]">
-            <!-- Elegant background alternative if video fails to load, maybe subtle static image or gradient -->
+            
             <div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 to-black z-0" />
-            <!-- <video
-          poster="/img/vector-hero.svg"
-              autoplay
-              muted
-              loop
-              playsinline
-              class="w-full h-full object-cover opacity-60 z-10 relative mix-blend-screen"
-            >
-              <source
-                src="/video/wedding-video.mp4"
-                type="video/mp4"
-              >
-            </video> -->
-            <!-- Vignette/Shadow overlay -->
+            
+            
             <div
               class="absolute inset-0 bg-black/40 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] z-20 pointer-events-none"
             />
           </div>
 
           <div class="relative z-30 max-w-4xl mx-auto text-center px-6 md:px-12 w-full">
-            <!-- Main Content Container with Glassmorphism -->
+            
             <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1200ms] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-hidden group">
-              <!-- Decorative elements -->
+              
               <div
                 class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400/50 to-transparent opacity-50"
               />
@@ -384,7 +345,7 @@
               />
 
               <div class="relative z-10 space-y-12">
-                <!-- Header Title -->
+                
                 <div class="opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms] space-y-4">
                   <div class="flex justify-center mb-6">
                     <div class="w-16 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent mx-2 my-auto" />
@@ -395,10 +356,10 @@
                   <p class="text-3xl font-serif italic font-light text-white tracking-wide mt-2">{{ t("dateMain") }}</p>
                 </div>
 
-                <!-- Countdown Timer -->
+                
                 <div class="py-8 border-y border-white/10 my-10">
                   <div class="grid grid-cols-4 gap-2 md:gap-6 max-w-2xl mx-auto">
-                    <!-- Days -->
+                    
                     <div
                       class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors"
                     >
@@ -407,7 +368,7 @@
                         class="text-[10px] md:text-xs uppercase tracking-widest text-pink-200/70 mt-2 font-medium"
                       >{{ t("days") }}</span>
                     </div>
-                    <!-- Hours -->
+                    
                     <div
                       class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors"
                     >
@@ -416,7 +377,7 @@
                         class="text-[10px] md:text-xs uppercase tracking-widest text-pink-200/70 mt-2 font-medium"
                       >{{ t("hours") }}</span>
                     </div>
-                    <!-- Minutes -->
+                    
                     <div
                       class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors"
                     >
@@ -425,7 +386,7 @@
                         class="text-[10px] md:text-xs uppercase tracking-widest text-pink-200/70 mt-2 font-medium"
                       >{{ t("minutes") }}</span>
                     </div>
-                    <!-- Seconds -->
+                    
                     <div
                       class="flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors"
                     >
@@ -448,9 +409,9 @@
                   </div>
                 </div>
 
-                <!-- Event Details -->
+                
                 <div class="flex flex-col gap-8 md:gap-10 text-left pt-2 max-w-xl mx-auto">
-                  <!-- Pemberkatan -->
+                  
                   <div class="relative pl-6 md:pl-8 border-l border-pink-300/30">
                     <div
                       class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-pink-300 shadow-[0_0_10px_rgba(249,168,212,0.8)]"
@@ -473,7 +434,7 @@
                     </div>
                   </div>
 
-                  <!-- Resepsi -->
+                  
                   <div class="relative pl-6 md:pl-8 border-l border-pink-300/30">
                     <div
                       class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-pink-300 shadow-[0_0_10px_rgba(249,168,212,0.8)]"
@@ -497,7 +458,7 @@
                   </div>
                 </div>
 
-                <!-- Maps Button -->
+                
                 <div class="pt-6">
                   <a
                     href="https://www.google.com/maps"
@@ -515,24 +476,12 @@
           </div>
         </section>
 
-        <!-- RSVP -->
+        
         <section class="min-h-[100dvh] md:min-h-screen relative flex flex-col justify-center py-16 md:py-24">
-          <!-- Background Video with elegant overlay -->
+          
           <div class="absolute inset-0 -z-10 bg-[#1a1a1a]">
             <div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 to-black z-0" />
-            <!-- <video
-          poster="/img/vector-hero.svg"
-              autoplay
-              muted
-              loop
-              playsinline
-              class="w-full h-full object-cover opacity-60 z-10 relative mix-blend-screen"
-            >
-              <source
-                src="/video/wedding-video.mp4"
-                type="video/mp4"
-              >
-            </video> -->
+            
             <div
               class="absolute inset-0 bg-black/40 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] z-20 pointer-events-none"
             />
@@ -540,9 +489,9 @@
 
           <div class="relative z-30 max-w-4xl mx-auto text-center px-6 md:px-12 w-full">
             <div class="flex flex-col gap-12">
-              <!-- Top side: Header & Form -->
+              
               <div class="space-y-8 lg:text-left">
-                <!-- Judul + Intro -->
+                
                 <div class="opacity-0 transition-all ease-out scroll-animate -translate-x-10 duration-[1000ms] space-y-4 text-center lg:text-left">
                   <div class="flex justify-center lg:justify-start mb-4">
                     <i class="mdi mdi-flower-tulip-outline text-3xl md:text-4xl text-pink-300" />
@@ -552,12 +501,12 @@
                   <p class="text-white/70 text-sm md:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">{{ t("rsvpDesc") }}</p>
                 </div>
 
-                <!-- Form RSVP -->
+                
                 <form class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-[200ms] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-hidden group space-y-6">
                   <div class="absolute -top-40 -right-40 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl" />
 
                   <div class="relative z-10 space-y-6">
-                    <!-- Nama Lengkap -->
+                    
                     <div class="flex flex-col text-left space-y-2">
                       <label
                         for="nama"
@@ -573,7 +522,7 @@
                       >
                     </div>
 
-                    <!-- Konfirmasi Kehadiran -->
+                    
                     <div class="flex flex-col text-left space-y-3">
                       <p class="text-xs tracking-widest uppercase text-pink-200/80 font-medium ml-1">{{ t("confirmAttendance") }}</p>
                       <div class="flex flex-col sm:flex-row gap-4">
@@ -603,7 +552,7 @@
                       </div>
                     </div>
 
-                    <!-- Ucapan & Doa -->
+                    
                     <div class="flex flex-col text-left space-y-2">
                       <label
                         for="ucapan"
@@ -618,7 +567,7 @@
                       />
                     </div>
 
-                    <!-- Tombol Kirim -->
+                    
                     <button
                       type="submit"
                       class="w-full py-4 bg-pink-300 hover:bg-pink-400 text-gray-900 rounded-2xl text-sm font-medium tracking-wide transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,168,212,0.4)] hover:-translate-y-1 flex justify-center items-center gap-2 mt-4"
@@ -636,13 +585,13 @@
                 </form>
               </div>
 
-              <!-- Bottom side: List Ucapan Tamu -->
+              
               <div class="h-full">
                 <div class="opacity-0 transition-all ease-out scroll-animate translate-x-10 duration-[1000ms] delay-[400ms] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 h-full min-h-[500px] flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-hidden group">
                   <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl" />
 
                   <div class="relative z-10 flex flex-col h-full">
-                    <!-- Judul tetap di atas -->
+                    
                     <div class="mb-6 border-b border-white/10 pb-4 flex items-center gap-3">
                       <UIcon
                         name="mdi:message-heart-outline"
@@ -656,7 +605,7 @@ Belum ada ucapan
 </span>
                     </div>
 
-                    <!-- Container scrollable untuk card -->
+                    
                     <div class="flex-1 overflow-y-auto space-y-4 pr-2 max-h-[500px] md:max-h-[600px] scrollbar-hide">
                       <template >
                         <div
@@ -679,35 +628,23 @@ Belum ada ucapan
           </div>
         </section>
 
-        <!-- Wedding Gift -->
+        
         <section class="min-h-[100dvh] md:min-h-screen relative flex flex-col justify-center py-16 md:py-24">
-          <!-- Background Video with elegant overlay -->
+          
           <div class="absolute inset-0 -z-10 bg-[#1a1a1a]">
-            <!-- Elegant background alternative if video fails to load, maybe subtle static image or gradient -->
+            
             <div class="absolute inset-0 bg-gradient-to-br from-pink-900/20 to-black z-0" />
-            <!-- <video
-          poster="/img/vector-hero.svg"
-              autoplay
-              muted
-              loop
-              playsinline
-              class="w-full h-full object-cover opacity-60 z-10 relative mix-blend-screen grayscale"
-            >
-              <source
-                src="/video/wedding-video.mp4"
-                type="video/mp4"
-              >
-            </video> -->
-            <!-- Vignette/Shadow overlay -->
+            
+            
             <div
               class="absolute inset-0 bg-black/40 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] z-20 pointer-events-none"
             />
           </div>
 
-          <!-- Content -->
+          
           <div class="relative z-30 max-w-5xl mx-auto text-center px-6 md:px-12 w-full">
             <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1200ms] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative overflow-hidden group">
-              <!-- Decorative elements -->
+              
               <div
                 class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400/50 to-transparent opacity-50"
               />
@@ -715,7 +652,7 @@ Belum ada ucapan
               <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl" />
 
               <div class="relative z-10 space-y-12">
-                <!-- Heading -->
+                
                 <div class="opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms] space-y-4">
                   <div class="flex justify-center mb-6">
                     <div class="w-16 h-px bg-gradient-to-r from-transparent via-pink-300 to-transparent mx-2 my-auto" />
@@ -727,9 +664,9 @@ Belum ada ucapan
                   <p class="text-white/70 text-sm md:text-base leading-relaxed max-w-xl mx-auto pt-4">{{ t("giftDesc") }}</p>
                 </div>
 
-                <!-- Cards Container -->
+                
                 <div class="flex flex-col gap-6 pt-6 max-w-2xl mx-auto w-full">
-                  <!-- Card 1: Kirim Kado / Alamat -->
+                  
                   <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-[200ms] bg-white/5 border border-white/10 rounded-2xl p-6 text-white flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 group/card relative overflow-hidden"
                   >
                     <div
@@ -761,7 +698,7 @@ Belum ada ucapan
                     </a>
                   </div>
 
-                  <!-- Card 2: Nomor Rekening BCA -->
+                  
                   <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-[400ms] bg-white/5 border border-white/10 rounded-2xl p-6 text-white flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 group/card relative overflow-hidden"
                   >
                     <div
@@ -769,7 +706,7 @@ Belum ada ucapan
                     />
 
                     <div class="space-y-4 relative z-10 flex-1 text-left">
-                      <!-- Tambah Icon Bank Asli jika punya, untuk sementara pakai icon bank dummy -->
+                      
                       <div class="w-12 h-12 rounded-full bg-blue-400/20 flex items-center justify-center mb-6">
                         <UIcon
                           name="mdi:bank-outline"
@@ -795,7 +732,7 @@ Belum ada ucapan
                     </button>
                   </div>
 
-                  <!-- Card 3: Gopay / E-Wallet -->
+                  
                   <div class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-[600ms] bg-white/5 border border-white/10 rounded-2xl p-6 text-white flex flex-col justify-between hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 group/card relative overflow-hidden md:col-span-2 lg:col-span-1"
                   >
                     <div
@@ -833,9 +770,9 @@ Belum ada ucapan
           </div>
         </section>
 
-        <!-- GALERI -->
+        
         <section class="min-h-[100dvh] md:min-h-screen relative flex flex-col justify-center py-16 md:py-24 overflow-hidden">
-          <!-- Background -->
+          
           <div class="absolute inset-0 -z-10 bg-[#1a1a1a]">
             <div class="absolute inset-0 bg-gradient-to-t from-pink-900/20 via-black to-black z-0" />
             <div
@@ -843,9 +780,9 @@ Belum ada ucapan
             />
           </div>
 
-          <!-- Content -->
+          
           <div class="relative z-30 max-w-6xl mx-auto px-6 md:px-12 w-full h-full flex flex-col">
-            <!-- Header Section -->
+            
             <div class="opacity-0 transition-all ease-out scroll-animate -translate-y-10 duration-[1000ms] text-center space-y-4 mb-10 md:mb-16">
               <div class="flex justify-center mb-4">
                 <i class="mdi mdi-camera-outline text-3xl md:text-4xl text-pink-300" />
@@ -854,16 +791,16 @@ Belum ada ucapan
               <p class="text-4xl md:text-6xl font-serif italic font-light text-white tracking-wide mt-2">{{ t("memoriesTitle") }}</p>
             </div>
 
-            <!-- Gallery Grid / Carousel Container -->
+            
             <div class="opacity-0 transition-all ease-out scroll-animate scale-95 duration-[1200ms] relative flex-1 w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-              <!-- Decorative ambient glow -->
+              
               <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-pink-500/10 rounded-full blur-[100px] pointer-events-none"
               />
 
-              <!-- Image Display -->
+              
               <div class="relative w-full h-[60vh] md:h-[70vh] rounded-2xl overflow-hidden group">
-                <!-- Main Featured Images -->
+                
                 <transition-group
                   name="fade"
                   tag="div"
@@ -880,14 +817,14 @@ Belum ada ucapan
                       class="absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-linear hover:scale-105 cursor-pointer"
                       @click="openLightbox(img)"
                     >
-                    <!-- Vignette Overlay -->
+                    
                     <div
                       class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none mix-blend-multiply"
                     />
                   </div>
                 </transition-group>
 
-                <!-- Navigation Controls (Hover visible on desktop) -->
+                
                 <div
                   class="absolute inset-0 flex items-center justify-between px-4 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none"
                 >
@@ -911,7 +848,7 @@ Belum ada ucapan
                   </button>
                 </div>
 
-                <!-- Open Lightbox Hint -->
+                
                 <div
                   class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 z-20 pointer-events-none opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
                 >
@@ -923,7 +860,7 @@ Belum ada ucapan
                 </div>
               </div>
 
-              <!-- Thumbnails / Pagination -->
+              
               <div
                 ref="thumbContainer"
                 class="mt-6 md:mt-8 flex justify-start gap-3 overflow-x-auto py-4 custom-scrollbar px-2"
@@ -950,9 +887,9 @@ Belum ada ucapan
           </div>
         </section>
 
-        <!-- FOOTER / THANK YOU -->
+        
         <section class="relative w-full min-h-[100dvh] md:min-h-screen overflow-hidden flex flex-col">
-          <!-- Background Gradient Vertikal -->
+          
           <div class="absolute inset-0 -z-10">
             <div class="absolute inset-0 bg-gradient-to-b from-pink-800/30 via-black/70 to-black/95" />
             <div
@@ -960,34 +897,34 @@ Belum ada ucapan
             />
           </div>
 
-          <!-- Main Content (Centered) -->
+          
           <div class="relative z-20 max-w-4xl mx-auto text-center px-6 md:px-12 flex flex-col justify-center flex-1">
-            <!-- Heart / Ornament -->
+            
             <div class="flex justify-center mb-6">
               <i class="mdi mdi-heart text-4xl text-pink-300 animate-pulse" />
             </div>
 
-            <!-- Thank You Text -->
+            
             <p class="opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] text-xl md:text-2xl font-serif italic font-light text-white/90 mb-4">
 {{ t("thankYouText") }}
 </p>
 
-            <!-- Small Note -->
+            
             <p class="text-sm md:text-base text-white/60 tracking-wide mb-6">
 {{ t("thankYouSub") }}
 </p>
 
-            <!-- Footer Branding / Couple Name -->
+            
             <p class="text-pink-200 text-sm md:text-base uppercase tracking-[0.25em] font-medium mb-4">
               Romeo & Juliet
             </p>
 
-            <!-- Keevia Label Before Instagram -->
+            
             <p class="text-white/50 text-xs md:text-sm mb-3">
               Keevia.id Digital Invitation
             </p>
 
-            <!-- Instagram Perusahaan -->
+            
             <div class="flex justify-center gap-4">
               <a
                 href="https://instagram.com/keevia.id"
@@ -1003,7 +940,7 @@ Belum ada ucapan
             </div>
           </div>
 
-          <!-- Bottom Rights (Always at Bottom) -->
+          
           <div class="relative z-20 text-center mt-auto py-4 text-white/40 text-xs md:text-sm border-t border-white/10">
             &copy; 2026 Keevia.id. All Rights Reserved.
           </div>
@@ -1019,7 +956,7 @@ import { ref, onMounted, computed, inject, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useNuxtApp } from '#app'
 
-// Daftar gambar
+
 const images = ref<string[]>([
   '/img/blossom_showcase.png',
   '/img/blossom_showcase.png',
@@ -1045,12 +982,12 @@ const prevSlide = () => {
     = (current.value - 1 + images.value.length) % images.value.length
 }
 
-// Refs untuk thumbnail container & items
+
 const rightPanel = ref<HTMLElement | null>(null)
 const thumbContainer = ref<HTMLElement | null>(null)
 const thumbs = ref<HTMLElement[]>([])
 
-// Scroll thumbnail aktif ke tengah
+
 const scrollThumbIntoView = () => {
   nextTick(() => {
     if (!thumbContainer.value || !thumbs.value.length) return
@@ -1061,7 +998,7 @@ const scrollThumbIntoView = () => {
     const containerRect = container.getBoundingClientRect()
     const thumbRect = activeThumb.getBoundingClientRect()
 
-    // Calculate actual center taking into account scroll position
+
     const scrollLeftTo = activeThumb.offsetLeft - (containerRect.width / 2) + (activeThumb.offsetWidth / 2)
     container.scrollTo({
       left: scrollLeftTo,
@@ -1070,13 +1007,13 @@ const scrollThumbIntoView = () => {
   })
 }
 
-// Watch current slide
+
 watch(current, () => {
   scrollThumbIntoView()
 })
 
 
-// Simple Lightbox
+
 const openLightbox = (src: string) => {
   const lightbox = document.createElement('div')
   lightbox.className = 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center cursor-pointer'
@@ -1085,7 +1022,7 @@ const openLightbox = (src: string) => {
   document.body.appendChild(lightbox)
 }
 
-// AUDIO CONTROL
+
 const audioControl = inject('audioControl') as {
   isPlaying: Ref<boolean>
   toggleAudio: () => void
@@ -1286,7 +1223,7 @@ const openInvitation = () => {
 
   startCountdown()
 
-  // Force play all background videos upon user interaction
+
   document.querySelectorAll('video').forEach(vid => {
     const playPromise = vid.play()
     if (playPromise !== undefined) {
@@ -1295,13 +1232,13 @@ const openInvitation = () => {
   })
 }
 
-// Start interval if open
+
 watch(isOpen, (val) => {
   if (val) {
     _interval = window.setInterval(nextSlide, 4000)
   } else {
     clearInterval(_interval)
-    current.value = 0 // reset ke data pertama
+    current.value = 0
   }
 })
 
@@ -1320,7 +1257,7 @@ const initScrollAnimations = () => {
 }
 
 onMounted(() => {
-  // Force play videos
+
   document.querySelectorAll('video').forEach(vid => {
     const playPromise = vid.play()
     if (playPromise !== undefined) {
@@ -1332,17 +1269,17 @@ onMounted(() => {
     initScrollAnimations()
   }, 500)
 
-  document.body.classList.add('overflow-hidden') // Require visitor to open invitation to scroll
+  document.body.classList.add('overflow-hidden')
 
   
 
-  // Interval dipindahkan ke watcher / observer
+
   if (thumbContainer.value) {
-    // // Manual select removed // removed manual select
+
   }
 })
 
-// Countdown
+
 const countdown = ref({
   days: '00',
   hours: '00',
@@ -1370,7 +1307,7 @@ const startCountdown = () => {
   }, 1000)
 }
 
-// Format tanggal
+
 const formatDate = (d: Date) => new Date(d).toLocaleString('id-ID', {
   dateStyle: 'medium',
   timeStyle: 'short'
@@ -1398,7 +1335,7 @@ const showToast = (message: string, _isError = false) => {
   `
   document.body.appendChild(toast)
 
-  // otomatis fade out dan hilang setelah 2 detik
+
   setTimeout(() => {
     toast.style.opacity = '0'
     toast.style.transform = 'translate(-50%, -20px)'
@@ -1416,7 +1353,7 @@ html, body {
 
 .scroll-animate {
   will-change: opacity, transform;
-  transform: translateZ(0); /* Hardware acceleration iOS */
+  transform: translateZ(0); 
   backface-visibility: hidden;
 }
 </style>

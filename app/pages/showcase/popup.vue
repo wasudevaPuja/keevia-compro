@@ -467,12 +467,12 @@ const submitRsvp = () => {
 <style>
 html { scroll-behavior: smooth; }
 
-/* Content fade-in saat cover menghilang */
+
 .content-fade-enter-active { transition: opacity 1s ease 0.3s; }
 .content-fade-leave-active { transition: opacity 0.3s ease; }
 .content-fade-enter-from, .content-fade-leave-to { opacity: 0; }
 
-/* Teks nama slide dari atas */
+
 @keyframes slideFromTop {
   from { opacity: 0; transform: translateY(-28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -481,7 +481,7 @@ html { scroll-behavior: smooth; }
   animation: slideFromTop 0.9s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
-/* Card guest + button slide dari bawah */
+
 @keyframes slideFromBottom {
   from { opacity: 0; transform: translateY(36px); }
   to   { opacity: 1; transform: translateY(0); }
