@@ -1249,6 +1249,15 @@ const dict = {
   }
 }
 
+useSeoMeta({
+  title: 'Tema Blossom Romance - Keevia Digital Invitation',
+  description: 'Undangan pernikahan digital premium dengan nuansa floral merah muda yang lembut, romantis, dan elegan karya Keevia.',
+  ogTitle: 'Tema Blossom Romance - Keevia Digital Invitation',
+  ogDescription: 'Undangan pernikahan digital premium dengan nuansa floral merah muda yang lembut, romantis, dan elegan karya Keevia.',
+  ogImage: '/img/blossom_showcase.png',
+  twitterCard: 'summary_large_image',
+})
+
 const lang = computed(() => {
   const l = route.query.lang as string
   return (l === 'en' ? 'en' : 'id')

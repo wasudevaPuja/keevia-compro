@@ -604,6 +604,15 @@ const dict = {
   }
 }
 
+useSeoMeta({
+  title: 'Tema Bali Luxury - Keevia Digital Invitation',
+  description: 'Undangan pernikahan digital premium dengan nuansa ukiran Bali yang mewah, emas elegan, dan fitur interaktif lengkap karya Keevia.',
+  ogTitle: 'Tema Bali Luxury - Keevia Digital Invitation',
+  ogDescription: 'Undangan pernikahan digital premium dengan nuansa ukiran Bali yang mewah, emas elegan, dan fitur interaktif lengkap karya Keevia.',
+  ogImage: '/img/bali_vector_pattern_gold.png',
+  twitterCard: 'summary_large_image',
+})
+
 const lang = computed(() => {
   const l = route.query.lang as string
   return (l === 'en' ? 'en' : 'id')

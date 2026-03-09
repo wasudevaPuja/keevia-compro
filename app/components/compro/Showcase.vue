@@ -1,18 +1,26 @@
 <script setup lang="ts">
 const themes = [
   {
-    name: 'Blossom',
-    image: '/img/blossom_showcase.png',
-    style: 'Monochrome / Pink',
-    href: '/showcase/blossom'
+    name: 'Eternity',
+    image: '/img/eternity-theme.png',
+    style: 'Luxury / Navy Gold',
+    href: '/showcase/popup',
+    isNew: true,
+    isHighlighted: true
   },
   {
     name: 'Bali',
     image: '/img/bali_vector_pattern_gold.png',
     style: 'Luxury / Cultural',
     href: '/showcase/bali',
+    isHighlighted: true,
     isNew: true,
-    isHighlighted: true
+  },
+  {
+    name: 'Blossom',
+    image: '/img/blossom_showcase.png',
+    style: 'Monochrome / Pink',
+    href: '/showcase/blossom'
   },
   {
     name: 'Custom Theme',
