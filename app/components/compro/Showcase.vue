@@ -2,7 +2,7 @@
 const themes = [
   {
     name: 'Eternity',
-    image: '/img/eternity-theme.png',
+    image: '/couple-bg.png',
     style: 'Luxury / Navy Gold',
     href: '/showcase/popup',
     isNew: true,
