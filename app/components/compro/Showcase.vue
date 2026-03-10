@@ -2,25 +2,39 @@
 const themes = [
   {
     name: 'Eternity',
-    image: '/couple-bg.png',
+    image: '/img/eternity_showcase.png',
     style: 'Luxury / Navy Gold',
-    href: '/showcase/popup',
+    href: '/showcase/eternity',
     isNew: true,
     isHighlighted: true
   },
   {
     name: 'Bali',
-    image: '/img/bali_vector_pattern_gold.png',
+    image: '/img/bali_showcase.png',
     style: 'Luxury / Cultural',
-    href: '/showcase/bali',
-    isHighlighted: true,
-    isNew: true,
+    href: '/showcase/bali'
   },
   {
     name: 'Blossom',
-    image: '/img/blossom_showcase.png',
+    image: '/img/blossom_showcase_new.png',
     style: 'Monochrome / Pink',
     href: '/showcase/blossom'
+  },
+  {
+    name: 'Midnight Noir',
+    image: '/img/midnight_showcase.png',
+    style: 'Ultra Modern / Dark',
+    href: '/showcase/midnight',
+    isNew: true,
+    isHighlighted: true
+  },
+  {
+    name: 'Ocean Breeze',
+    image: '/img/ocean_showcase.png',
+    style: 'Coastal / Turquoise',
+    href: '/showcase/ocean',
+    isNew: true,
+    isHighlighted: true
   },
   {
     name: 'Custom Theme',

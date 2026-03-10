@@ -3,7 +3,6 @@ const route = useRoute()
 
 const slug = route.params.slug as string
 
-// Contoh ubah slug jadi nama (sementara)
 const formattedName = slug
   ?.split('-')
   .map(name => name.charAt(0).toUpperCase() + name.slice(1))

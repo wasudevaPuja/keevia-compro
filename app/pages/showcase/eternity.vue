@@ -2,6 +2,15 @@
 import { ref, onMounted, onUnmounted, inject, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
+useSeoMeta({
+  title: 'Tema Eternity - Keevia Digital Invitation',
+  description: 'Undangan pernikahan digital premium dengan nuansa navy gold yang elegan, efek paralaks 3D, dan fitur interaktif lengkap karya Keevia.',
+  ogTitle: 'Tema Eternity - Keevia Digital Invitation',
+  ogDescription: 'Undangan pernikahan digital premium dengan nuansa navy gold yang elegan, efek paralaks 3D, dan fitur interaktif lengkap karya Keevia.',
+  ogImage: '/couple-bg.png',
+  twitterCard: 'summary_large_image',
+})
+
 const isOpened = ref(false)
 
 const scrollY = ref(0)
@@ -56,23 +65,24 @@ onUnmounted(() => {
   window.removeEventListener('deviceorientation', onDeviceOrientation)
 })
 
-const photoRotateX = computed(() => {
-  if (!isOpened.value) return 90
-  return 90 - Math.min(scrollY.value / 600, 1) * 90
-})
-const photoOpacity = computed(() => {
-  if (!isOpened.value) return 0
-  return Math.min(scrollY.value / 300, 1)
+const photoScale = computed(() => {
+  if (!isOpened.value) return 1
+  return 1 - (Math.min(scrollY.value / 600, 1) * 0.15)
 })
 const photoTransform = computed(() => {
   const gyroRotX = isOpened.value ? tiltX.value * 0.4 : 0
   const gyroRotY = isOpened.value ? tiltY.value * 0.5 : 0
-  const scale = isOpened.value ? 1 - (Math.min(scrollY.value / 600, 1) * 0.15) : 0.8
-  return `perspective(1200px) rotateX(${photoRotateX.value + gyroRotX}deg) rotateY(${gyroRotY}deg) scale(${scale})`
+  return `perspective(1200px) rotateX(${gyroRotX}deg) rotateY(${gyroRotY}deg) scale(${photoScale.value})`
 })
 
-const bgLayer1 = computed(() => `translateY(${scrollY.value * 0.15}px)`)
-const bgLayer3 = computed(() => `translateY(-${scrollY.value * 0.08}px)`)
+const bgLayer1 = computed(() => {
+  const tiltTrans = `translateX(${tiltY.value * 2.5}px) translateY(${tiltX.value * 1.5}px)`
+  return `translateY(${scrollY.value * 0.15}px) ${tiltTrans}`
+})
+const bgLayer3 = computed(() => {
+  const tiltTrans = `translateX(${tiltY.value * 1.5}px) translateY(${tiltX.value * 0.8}px)`
+  return `translateY(-${scrollY.value * 0.08}px) ${tiltTrans}`
+})
 
 const petals = Array.from({ length: 14 }, (_, i) => ({
   id: i,
@@ -126,7 +136,7 @@ const submitRsvp = () => {
   
   <div
     class="min-h-screen text-[#F5ECD7] font-sans relative"
-    style="font-family: 'Georgia', serif;"
+    style="font-family: 'Georgia', serif; background: #253C54;"
     :class="isOpened ? '' : 'h-screen overflow-hidden'"
   >
 
@@ -139,18 +149,18 @@ const submitRsvp = () => {
       <UIcon name="mdi:arrow-left" class="w-4 h-4" /> Kembali
     </NuxtLink>
 
-    <transition name="fade">
-      <div
-        v-if="!isOpened"
-        class="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden"
-        style="background: linear-gradient(160deg, #253C54 0%, #2E4A60 60%, #344F68 100%);"
-      >
+    <div
+      v-if="!isOpened"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden cover-overlay"
+      :class="{ 'cover-closing': isOpened }"
+      style="background: linear-gradient(160deg, #253C54 0%, #2E4A60 60%, #344F68 100%);"
+    >
         
         <div
-          class="absolute -inset-[10%] z-0 will-change-transform"
+          class="absolute -inset-[5%] z-0 will-change-transform"
           :style="{ transform: `translateX(${tiltY * 2.5}px) translateY(${tiltX * 1.5}px)`, transition: 'transform 0.8s cubic-bezier(0.23,1,0.32,1)' }"
         >
-          <img src="/couple-bg.png" class="w-full h-full object-cover scale-125" style="opacity:1; filter: brightness(1.15) saturate(1.05);" />
+          <img src="/couple-bg.png" class="w-full h-full object-cover scale-110" style="opacity:1; filter: brightness(1.15) saturate(1.05);" />
           
           <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(37,60,84,0.97) 0%, rgba(37,60,84,0.75) 30%, rgba(37,60,84,0.3) 55%, transparent 100%);" />
           <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(37,60,84,0.2) 0%, transparent 25%);" />
@@ -205,22 +215,19 @@ const submitRsvp = () => {
 
         
         <p v-if="gyroSupported" class="absolute bottom-6 text-[9px] tracking-widest uppercase z-20" style="color: rgba(201,169,110,0.3);"> Miringkan HP untuk efek 3D </p>
-      </div>
-    </transition>
+    </div>
 
-    
-    <transition name="content-fade">
-    <div v-show="isOpened" class="w-full min-h-screen" style="background: linear-gradient(160deg, #253C54 0%, #2E4A60 50%, #344F68 100%); color:#F5ECD7;">
+    <div class="w-full min-h-screen" style="background: linear-gradient(160deg, #253C54 0%, #2E4A60 50%, #344F68 100%); color:#F5ECD7;">
 
       
       <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute inset-0 will-change-transform" :style="{ transform: bgLayer1 }">
-          <img src="/couple-bg.png" class="w-full h-full object-cover scale-125" style="opacity:0.1; filter: blur(3px) brightness(0.4) saturate(0.7);" />
+        <div class="absolute -inset-[5%] will-change-transform" :style="{ transform: bgLayer1 }">
+          <img src="/couple-bg.png" class="w-full h-full object-cover scale-110" style="opacity:0.1; filter: blur(3px) brightness(0.4) saturate(0.7);" />
         </div>
         
         <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 20%, #0D1B2A 100%);"></div>
         
-        <div class="absolute inset-0 overflow-hidden" :style="{ transform: bgLayer3 }">
+        <div class="absolute -inset-[5%] overflow-hidden" :style="{ transform: bgLayer3 }">
           <span
             v-for="p in petals.slice(0, 8)"
             :key="'main-' + p.id"
@@ -231,13 +238,17 @@ const submitRsvp = () => {
       </div>
 
       
-      <div class="fixed inset-0 pointer-events-none flex items-center justify-center z-10">
+      <div
+        v-show="isOpened && scrollY > 80"
+        class="fixed inset-0 pointer-events-none flex items-center justify-center z-10"
+        style="transition: opacity 0.6s ease;"
+      >
         <div
-          class="relative w-64 md:w-80 h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden transform-gpu origin-bottom"
+          class="relative w-64 md:w-80 h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden transform-gpu"
           :style="{
             transform: photoTransform,
-            opacity: photoOpacity,
-            transition: 'opacity 0.3s ease',
+            opacity: Math.min((scrollY - 80) / 200, 1),
+            transition: 'transform 0.3s ease, opacity 0.6s ease',
             boxShadow: '0 40px 80px rgba(0,0,0,0.7), 0 0 60px rgba(201,169,110,0.12)',
             border: '1px solid rgba(201,169,110,0.2)',
           }"
@@ -271,9 +282,6 @@ const submitRsvp = () => {
 
       <div class="max-w-7xl mx-auto px-6 relative z-20 py-32 space-y-[40vh] md:space-y-[60vh]">
 
-        
-
-        
         <div class="w-full flex justify-end reveal-section">
           <div
             class="md:w-5/12 p-10 rounded-[2rem] text-right mr-4 md:mr-0 hover:-translate-x-2 transition-transform"
@@ -299,7 +307,6 @@ const submitRsvp = () => {
           </div>
         </div>
 
-        
         <div class="w-full flex justify-start reveal-section">
           <div
             class="md:w-5/12 p-10 rounded-[2rem] text-left ml-4 md:ml-0 hover:translate-x-2 transition-transform"
@@ -323,7 +330,6 @@ const submitRsvp = () => {
           </div>
         </div>
 
-        
         <div class="w-full flex justify-center reveal-section">
           <div
             class="w-full md:w-8/12 p-10 rounded-[2rem] text-left"
@@ -384,7 +390,6 @@ const submitRsvp = () => {
             <p class="text-[9px] tracking-[0.5em] uppercase mb-1" style="color:#C9A96E;">Wishes</p>
             <div class="h-px mb-6 w-16" style="background: linear-gradient(to right, #C9A96E, transparent);"></div>
             <h2 class="text-4xl mb-8" style="font-family:'Georgia',serif; color:#F5ECD7; font-weight:300;">Ucapan & Doa</h2>
-
             <div class="space-y-4 max-h-80 overflow-y-auto pr-2 mb-8 scrollbar-none">
               <transition-group name="wish-list" tag="div" class="space-y-4">
                 <div
@@ -409,7 +414,6 @@ const submitRsvp = () => {
           </div>
         </div>
 
-        
         <div class="w-full flex flex-col items-center pt-32 pb-[20vh] reveal-section">
           <div class="text-center mb-16">
             <p class="text-[9px] tracking-[0.6em] uppercase mb-3" style="color:#C9A96E;">Gallery</p>
@@ -419,8 +423,6 @@ const submitRsvp = () => {
               <div class="h-px w-12" style="background: linear-gradient(to left, transparent, #C9A96E);"></div>
             </div>
           </div>
-
-          
           <div class="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-none z-20">
             <div class="flex md:grid md:grid-cols-4 gap-4 px-4 md:px-0 w-max md:w-full">
               <div class="snap-center flex-shrink-0 w-64 md:w-auto aspect-square rounded-[2rem] overflow-hidden md:mt-20 hover:opacity-100 transition-opacity" style="opacity:0.82; border: 1px solid rgba(201,169,110,0.12);">
@@ -438,13 +440,14 @@ const submitRsvp = () => {
             </div>
           </div>
         </div>
+
       </div>
 
-      
+
       <footer class="py-24 text-center relative z-50" style="background: #09131D; border-top: 1px solid rgba(201,169,110,0.1);">
-        
         <div class="h-px w-32 mx-auto mb-16" style="background: linear-gradient(to right, transparent, #C9A96E, transparent);"></div>
         <h2 class="text-3xl mb-4" style="font-family:'Georgia',serif; color:#F5ECD7; font-weight:300; font-style:italic; line-height:1.6;">Terima Kasih Atas Doa<br>& Kehadiran Anda.</h2>
+
         <p class="text-sm mb-12" style="color:#A89880; font-style:italic;">— Julian & Alisa —</p>
         <div class="flex justify-center mb-8">
           <a
@@ -460,7 +463,6 @@ const submitRsvp = () => {
         <p class="text-[9px] tracking-widest uppercase" style="color: rgba(168,152,128,0.4);">© 2026 Keevia.id — All Rights Reserved</p>
       </footer>
     </div>
-    </transition>
   </div>
 </template>
 
@@ -468,7 +470,7 @@ const submitRsvp = () => {
 html { scroll-behavior: smooth; }
 
 
-.content-fade-enter-active { transition: opacity 1s ease 0.3s; }
+.content-fade-enter-active { transition: opacity 0.8s ease; }
 .content-fade-leave-active { transition: opacity 0.3s ease; }
 .content-fade-enter-from, .content-fade-leave-to { opacity: 0; }
 
@@ -492,7 +494,7 @@ html { scroll-behavior: smooth; }
 }
 
 
-.fade-enter-active, .fade-leave-active { transition: opacity 1.2s ease; }
+.fade-enter-active, .fade-leave-active { transition: opacity 0.6s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 
 @keyframes petalFall {
