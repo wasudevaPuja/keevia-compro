@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const lang = useLang()
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    desc: 'Platform undangan digital premium yang merubah momen berharga Anda menjadi mahakarya abadi dalam bentuk digital yang elegan.',
+    navTitle: 'Navigasi',
+    helpTitle: 'Bantuan',
+    links: {
+      features: 'Fitur',
+      themes: 'Tema',
+      pricing: 'Harga'
+    }
+  } : {
+    desc: 'A premium digital invitation platform that transforms your precious moments into eternal masterpieces in elegant digital form.',
+    navTitle: 'Navigation',
+    helpTitle: 'Support',
+    links: {
+      features: 'Features',
+      themes: 'Themes',
+      pricing: 'Pricing'
+    }
+  }
+})
+</script>
+
 <template>
   <footer class="bg-black pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
     <!-- Glow -->
@@ -14,7 +42,7 @@
             <span class="font-serif italic font-bold text-3xl tracking-wider text-white group-hover:text-pink-300 transition-colors">Keevia.id</span>
           </NuxtLink>
           <p class="text-sm font-light text-white/60 max-w-sm mx-auto md:mx-0 leading-relaxed">
-            Platform undangan digital premium yang merubah momen berharga Anda menjadi mahakarya abadi dalam bentuk digital yang elegan.
+            {{ texts.desc }}
           </p>
           <div class="flex items-center justify-center md:justify-start gap-4">
             <a
@@ -43,33 +71,33 @@
         <!-- Links -->
         <div class="space-y-6 text-center md:text-left">
           <h4 class="text-sm font-semibold tracking-widest uppercase text-white">
-            Navigasi
+            {{ texts.navTitle }}
           </h4>
           <ul class="space-y-4">
             <li>
               <a
                 href="/#features"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Features</a>
+              >{{ texts.links.features }}</a>
             </li>
             <li>
               <a
                 href="/#themes"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Themes</a>
+              >{{ texts.links.themes }}</a>
             </li>
             <li>
               <a
                 href="/#pricing"
                 class="text-sm font-light text-white/60 hover:text-pink-300 transition-colors"
-              >Pricing</a>
+              >{{ texts.links.pricing }}</a>
             </li>
           </ul>
         </div>
 
         <div class="space-y-6 text-center md:text-left">
           <h4 class="text-sm font-semibold tracking-widest uppercase text-white">
-            Bantuan
+            {{ texts.helpTitle }}
           </h4>
           <ul class="space-y-4">
             <li>

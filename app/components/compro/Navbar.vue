@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 const activeSection = ref('')
+const lang = useLang()
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
-  const sections = navLinks.map(link => link.href.replace('#', ''))
+  const sections = navLinks.value.map((link: {href: string}) => link.href.replace('#', ''))
   let current = ''
 
   for (const section of sections) {
@@ -42,11 +43,17 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
-const navLinks = [
-  { name: 'Features', href: '/#features' },
-  { name: 'Themes', href: '/#themes' },
-  { name: 'Pricing', href: '/#pricing' }
-]
+const navLinks = computed(() => {
+  return lang.value === 'id' ? [
+    { name: 'Fitur', href: '/#features' },
+    { name: 'Tema', href: '/#themes' },
+    { name: 'Harga', href: '/#pricing' }
+  ] : [
+    { name: 'Features', href: '/#features' },
+    { name: 'Themes', href: '/#themes' },
+    { name: 'Pricing', href: '/#pricing' }
+  ]
+})
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -84,12 +91,28 @@ const toggleMobileMenu = () => {
           {{ link.name }}
         </a>
 
+        <!-- Desktop Lang Switcher -->
+        <div class="flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10 ml-2">
+          <button
+            @click="lang = 'id'"
+            :class="['px-3 py-1 rounded-full text-xs font-semibold tracking-wider transition-all', lang === 'id' ? 'bg-pink-500 text-white shadow-[0_0_10px_rgba(236,72,153,0.3)]' : 'text-white/60 hover:text-white']"
+          >
+            ID
+          </button>
+          <button
+            @click="lang = 'en'"
+            :class="['px-3 py-1 rounded-full text-xs font-semibold tracking-wider transition-all', lang === 'en' ? 'bg-pink-500 text-white shadow-[0_0_10px_rgba(236,72,153,0.3)]' : 'text-white/60 hover:text-white']"
+          >
+            EN
+          </button>
+        </div>
+
         <a
           href="https://wa.me/6287766603301"
           target="_blank"
-          class="ml-4 px-6 py-2.5 rounded-full bg-white/10 hover:bg-pink-500 hover:text-white border border-white/20 hover:border-pink-400 text-white text-sm font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]"
+          class="ml-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-pink-500 hover:text-white border border-white/20 hover:border-pink-400 text-white text-sm font-semibold tracking-wide transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]"
         >
-          Pesan Sekarang
+          {{ lang === 'id' ? 'Pesan Sekarang' : 'Order Now' }}
         </a>
       </div>
 
@@ -125,12 +148,26 @@ const toggleMobileMenu = () => {
         >
           {{ link.name }}
         </a>
+        <div class="flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10 mt-2 mb-2">
+          <button
+            @click="lang = 'id'"
+            :class="['px-6 py-2 rounded-full text-sm font-semibold tracking-wider transition-all', lang === 'id' ? 'bg-pink-500 text-white shadow-[0_0_10px_rgba(236,72,153,0.3)]' : 'text-white/60 hover:text-white']"
+          >
+            ID
+          </button>
+          <button
+            @click="lang = 'en'"
+            :class="['px-6 py-2 rounded-full text-sm font-semibold tracking-wider transition-all', lang === 'en' ? 'bg-pink-500 text-white shadow-[0_0_10px_rgba(236,72,153,0.3)]' : 'text-white/60 hover:text-white']"
+          >
+            EN
+          </button>
+        </div>
         <a
           href="https://wa.me/6287766603301"
           target="_blank"
           class="px-8 py-3 rounded-full bg-pink-500 text-white text-base font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(236,72,153,0.4)]"
         >
-          Pesan Sekarang
+          {{ lang === 'id' ? 'Pesan Sekarang' : 'Order Now' }}
         </a>
       </div>
     </div>

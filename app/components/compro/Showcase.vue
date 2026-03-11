@@ -1,5 +1,21 @@
 <script setup lang="ts">
-const themes = [
+import { computed } from 'vue'
+
+const lang = useLang()
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    badge: 'Koleksi Desain',
+    heading1: 'Pilih Tema',
+    heading2: 'Impian Anda'
+  } : {
+    badge: 'Design Collection',
+    heading1: 'Choose Your',
+    heading2: 'Dream Theme'
+  }
+})
+
+const themes = computed(() => [
   {
     name: 'Eternity',
     image: '/img/eternity_showcase.png',
@@ -37,12 +53,12 @@ const themes = [
     isHighlighted: true
   },
   {
-    name: 'Custom Theme',
+    name: lang.value === 'id' ? 'Tema Custom' : 'Custom Theme',
     image: '/img/custom_showcase.png',
-    style: 'Request Your Design',
+    style: lang.value === 'id' ? 'Desain Sesuai Permintaan' : 'Request Your Design',
     href: '/'
   }
-]
+])
 </script>
 
 <template>
@@ -58,10 +74,10 @@ const themes = [
               name="mdi:palette-swatch-outline"
               class="w-4 h-4 text-pink-300"
             />
-            <span class="text-xs font-semibold tracking-widest uppercase text-white/80">Koleksi Desain</span>
+            <span class="text-xs font-semibold tracking-widest uppercase text-white/80">{{ texts.badge }}</span>
           </div>
           <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight">
-            Pilih Tema <span class="italic text-pink-200">Impian Anda</span>
+            {{ texts.heading1 }} <span class="italic text-pink-200">{{ texts.heading2 }}</span>
           </h2>
         </div>
 

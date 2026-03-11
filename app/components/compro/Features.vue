@@ -1,41 +1,103 @@
 <script setup lang="ts">
-const features = [
-  {
-    icon: 'mdi:translate',
-    title: 'Multi-Language Support',
-    description: 'Bebas kustomisasi bahasa undangan Anda untuk menyambut tamu dari berbagai latar belakang dunia.'
-  },
-  {
-    icon: 'mdi:music-note-outline',
-    title: 'Background Music',
-    description: 'Beri sentuhan emosi dengan musik latar pilihan yang otomatis terputar saat undangan dibuka.'
-  },
-  {
-    icon: 'mdi:email-heart-outline',
-    title: 'RSVP & Guestbook',
-    description: 'Catat kehadiran tamu dan terima ucapan doa restu secara langsung di dashboard Anda.'
-  },
-  {
-    icon: 'mdi:image-multiple-outline',
-    title: 'Exclusive Gallery',
-    description: 'Tampilkan momen pre-wedding terbaik Anda dalam galeri bergaya eksklusif dan estetik.'
-  },
-  {
-    icon: 'mdi:map-marker-radius-outline',
-    title: 'Interactive Maps',
-    description: 'Permudah tamu menemukan lokasi acara dengan integrasi Google Maps yang responsif.'
-  },
-  {
-    icon: 'mdi:gift-outline',
-    title: 'Digital Gift',
-    description: 'Terima tanda kasih dari tamu melalui transfer bank atau e-wallet dengan aman dan praktis.'
-  },
-  {
-    icon: 'mdi:timer-sand',
-    title: 'Countdown Timer',
-    description: 'Hitung mundur menuju hari bahagia Anda dengan tampilan waktu yang elegan.'
+import { computed } from 'vue'
+
+const lang = useLang()
+
+const features = computed(() => {
+  if (lang.value === 'id') {
+    return [
+      {
+        icon: 'mdi:translate',
+        title: 'Multi-Language Support',
+        description: 'Bebas kustomisasi bahasa undangan Anda untuk menyambut tamu dari berbagai latar belakang dunia.'
+      },
+      {
+        icon: 'mdi:music-note-outline',
+        title: 'Background Music',
+        description: 'Beri sentuhan emosi dengan musik latar pilihan yang otomatis terputar saat undangan dibuka.'
+      },
+      {
+        icon: 'mdi:email-heart-outline',
+        title: 'RSVP & Guestbook',
+        description: 'Catat kehadiran tamu dan terima ucapan doa restu secara langsung di dashboard Anda.'
+      },
+      {
+        icon: 'mdi:image-multiple-outline',
+        title: 'Exclusive Gallery',
+        description: 'Tampilkan momen pre-wedding terbaik Anda dalam galeri bergaya eksklusif dan estetik.'
+      },
+      {
+        icon: 'mdi:map-marker-radius-outline',
+        title: 'Interactive Maps',
+        description: 'Permudah tamu menemukan lokasi acara dengan integrasi Google Maps yang responsif.'
+      },
+      {
+        icon: 'mdi:gift-outline',
+        title: 'Digital Gift',
+        description: 'Terima tanda kasih dari tamu melalui transfer bank atau e-wallet dengan aman dan praktis.'
+      },
+      {
+        icon: 'mdi:timer-sand',
+        title: 'Countdown Timer',
+        description: 'Hitung mundur menuju hari bahagia Anda dengan tampilan waktu yang elegan.'
+      }
+    ]
+  } else {
+    return [
+      {
+        icon: 'mdi:translate',
+        title: 'Multi-Language Support',
+        description: 'Customize the language of your invitation freely to welcome guests from diverse cultural backgrounds worldwide.'
+      },
+      {
+        icon: 'mdi:music-note-outline',
+        title: 'Background Music',
+        description: 'Add an emotional touch with your chosen background music that plays automatically when the invitation is opened.'
+      },
+      {
+        icon: 'mdi:email-heart-outline',
+        title: 'RSVP & Guestbook',
+        description: 'Record guest attendance and receive well wishes directly on your dashboard.'
+      },
+      {
+        icon: 'mdi:image-multiple-outline',
+        title: 'Exclusive Gallery',
+        description: 'Display your best pre-wedding moments in an exclusive and aesthetic gallery style.'
+      },
+      {
+        icon: 'mdi:map-marker-radius-outline',
+        title: 'Interactive Maps',
+        description: 'Make it easy for guests to find the venue with responsive Google Maps integration.'
+      },
+      {
+        icon: 'mdi:gift-outline',
+        title: 'Digital Gift',
+        description: 'Receive gifts from guests safely and conveniently via bank transfer or e-wallet.'
+      },
+      {
+        icon: 'mdi:timer-sand',
+        title: 'Countdown Timer',
+        description: 'Countdown to your special day with an elegant timer display.'
+      }
+    ]
   }
-]
+})
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    badge: 'Fitur Unggulan',
+    heading1: 'Lebih Dari Sekadar',
+    heading2: 'Undangan',
+    desc: 'Setiap detail dirancang untuk memberikan pengalaman tak terlupakan bagi Anda dan para tamu undangan.',
+    newFeature: 'New Feature'
+  } : {
+    badge: 'Key Features',
+    heading1: 'More Than Just',
+    heading2: 'An Invitation',
+    desc: 'Every detail is designed to provide an unforgettable experience for you and your guests.',
+    newFeature: 'New Feature'
+  }
+})
 </script>
 
 <template>
@@ -54,13 +116,13 @@ const features = [
             name="mdi:star-four-points-outline"
             class="w-4 h-4 text-pink-300"
           />
-          <span class="text-xs font-semibold tracking-widest uppercase text-white/80">Fitur Unggulan</span>
+          <span class="text-xs font-semibold tracking-widest uppercase text-white/80">{{ texts.badge }}</span>
         </div>
         <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight">
-          Lebih Dari Sekadar <span class="italic text-pink-200">Undangan</span>
+          {{ texts.heading1 }} <span class="italic text-pink-200">{{ texts.heading2 }}</span>
         </h2>
         <p class="text-base md:text-lg text-white/60 font-light">
-          Setiap detail dirancang untuk memberikan pengalaman tak terlupakan bagi Anda dan para tamu undangan.
+          {{ texts.desc }}
         </p>
       </div>
 
@@ -89,7 +151,7 @@ const features = [
             </div>
 
             <div>
-              <div v-if="i === 0" class="inline-block px-3 py-1 mb-3 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase">New Feature</div>
+              <div v-if="i === 0" class="inline-block px-3 py-1 mb-3 rounded-full bg-pink-300/20 text-pink-200 text-xs font-semibold tracking-widest uppercase">{{ texts.newFeature }}</div>
               <h3 :class="['font-serif text-white mb-3', i === 0 ? 'text-2xl md:text-3xl lg:text-4xl' : 'text-xl']">
                 {{ feature.title }}
               </h3>

@@ -1,43 +1,63 @@
 <script lang="ts" setup>
-useSeoMeta({
-  title: 'Keevia | Undangan Digital Premium & Digital Invitations',
-  description: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
-  ogTitle: 'Keevia | Undangan Digital Premium & Digital Invitations',
-  ogDescription: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
-  ogImage: '/img/keevia-logo.png',
-  ogUrl: 'https://keevia.id',
-  twitterTitle: 'Keevia | Undangan Digital Premium & Digital Invitations',
-  twitterDescription: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
-  twitterImage: '/img/keevia-logo.png',
-  twitterCard: 'summary_large_image',
+import { computed, watch } from 'vue'
+
+const lang = useLang()
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    title: 'Keevia | Undangan Digital Premium & Digital Invitations',
+    description: 'Buat undangan digital (digital invitations) eksklusif dan elegan untuk pernikahan dan momen spesial Anda bersama Keevia. Coba sekarang!',
+    keywords: 'undangan digital, digital invitations, undangan pernikahan digital, undangan online premium, undangan pernikahan elegan, keevia, keevia.id',
+    orgDesc: 'Platform pembuatan undangan digital premium, eksklusif, dan elegan.'
+  } : {
+    title: 'Keevia | Premium Digital Invitations',
+    description: 'Create exclusive and elegant digital invitations for your wedding and special moments with Keevia. Try now!',
+    keywords: 'digital invitations, online invitations, premium wedding invitations, elegant digital cards, keevia, keevia.id',
+    orgDesc: 'Premium platform for creating exclusive and elegant digital invitations.'
+  }
 })
 
-useHead({
-  meta: [
-    { name: 'keywords', content: 'undangan digital, digital invitations, undangan pernikahan digital, undangan online premium, undangan pernikahan elegan, keevia, keevia.id' }
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Keevia.id",
-        "url": "https://www.keevia.id/",
-        "logo": "https://www.keevia.id/img/keevia-logo.png",
-        "description": "Platform pembuatan undangan digital premium, eksklusif, dan elegan.",
-        "sameAs": [
-          "https://instagram.com/keevia.id",
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+62-877-6660-3301",
-          "contactType": "Customer Service"
-        }
-      })
-    }
-  ]
-})
+watch(() => texts.value, (newVal) => {
+  useSeoMeta({
+    title: newVal.title,
+    description: newVal.description,
+    ogTitle: newVal.title,
+    ogDescription: newVal.description,
+    ogImage: '/img/keevia-logo.png',
+    ogUrl: 'https://keevia.id',
+    twitterTitle: newVal.title,
+    twitterDescription: newVal.description,
+    twitterImage: '/img/keevia-logo.png',
+    twitterCard: 'summary_large_image',
+  })
+
+  useHead({
+    meta: [
+      { name: 'keywords', content: newVal.keywords }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Keevia.id",
+          "url": "https://www.keevia.id/",
+          "logo": "https://www.keevia.id/img/keevia-logo.png",
+          "description": newVal.orgDesc,
+          "sameAs": [
+            "https://instagram.com/keevia.id",
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-877-6660-3301",
+            "contactType": "Customer Service"
+          }
+        })
+      }
+    ]
+  })
+}, { immediate: true })
 </script>
 
 <template>

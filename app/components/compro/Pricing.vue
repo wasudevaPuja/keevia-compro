@@ -1,54 +1,139 @@
 <script setup lang="ts">
-const packages = [
-  {
-    name: 'Basic',
-    price: '150',
-    description: 'Sempurna untuk undangan digital yang simpel dan elegan.',
-    features: [
-      'Default 1 Bahasa',
-      'Galeri Max 10 Foto',
-      'Video Pre-Wedding Integration',
-      'Custom Background Music',
-      'Navigasi Peta (Google Maps)',
-      'Hitung Mundur (Countdown)',
-      'Konsultasi Tema'
-    ],
-    highlight: false
-  },
-  {
-    name: 'Basic + 1 Bahasa',
-    price: '200',
-    description: 'Pilihan terpopuler dengan tambahan opsi bahasa untuk hari bahagia Anda.',
-    features: [
-      'Default + 1 Bahasa Tambahan',
-      'Galeri Max 15 Foto',
-      'Video Pre-Wedding Integration',
-      'Custom Background Music',
-      'Fitur RSVP',
-      'Navigasi Peta (Google Maps)',
-      'Fitur Amplop Digital (Gift)',
-      'Hitung Mundur (Countdown)',
-      'Konsultasi Tema'
-    ],
-    highlight: true
-  },
-  {
-    name: 'Custom Template',
-    price: 'Custom',
-    description: 'Desain khusus dan eksklusif persis sesuai keinginan Anda.',
-    features: [
-      'Multi-bahasa',
-      'Desain Tema Custom/Eksklusif',
-      'Galeri Foto Unlimited',
-      'Navigasi Peta (Google Maps)',
-      'Hitung Mundur (Countdown)',
-      'Video Pre-Wedding Integration',
-      'Custom Domain (namaanda.com)',
-      'Revisi Sepuasnya'
-    ],
-    highlight: false
+import { computed } from 'vue'
+
+const lang = useLang()
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    badge: 'Paket & Harga',
+    heading1: 'Investasi Untuk',
+    heading2: 'Momen Berharga',
+    desc: 'Pilih paket yang paling sesuai dengan kebutuhan hari bahagia Anda. Transparan tanpa biaya tersembunyi.',
+    popular: 'Populer',
+    contactUs: 'Hubungi Kami',
+    choose: 'Pilih',
+    whatsappText: 'Halo Keevia, saya tertarik dengan paket'
+  } : {
+    badge: 'Packages & Pricing',
+    heading1: 'Investment For',
+    heading2: 'Precious Moments',
+    desc: 'Choose the package that best suits the needs of your special day. Transparent with no hidden fees.',
+    popular: 'Popular',
+    contactUs: 'Contact Us',
+    choose: 'Choose',
+    whatsappText: 'Hello Keevia, I am interested in the package'
   }
-]
+})
+
+const packages = computed(() => {
+  if (lang.value === 'id') {
+    return [
+      {
+        name: 'Basic',
+        price: '150',
+        description: 'Sempurna untuk undangan digital yang simpel dan elegan.',
+        features: [
+          'Default 1 Bahasa',
+          'Galeri Max 10 Foto',
+          'Video Pre-Wedding Integration',
+          'Custom Background Music',
+          'Navigasi Peta (Google Maps)',
+          'Hitung Mundur (Countdown)',
+          'Konsultasi Tema'
+        ],
+        highlight: false
+      },
+      {
+        name: 'Basic + 1 Bahasa',
+        price: '200',
+        description: 'Pilihan terpopuler dengan tambahan opsi bahasa untuk hari bahagia Anda.',
+        features: [
+          'Default + 1 Bahasa Tambahan',
+          'Galeri Max 15 Foto',
+          'Video Pre-Wedding Integration',
+          'Custom Background Music',
+          'Fitur RSVP',
+          'Navigasi Peta (Google Maps)',
+          'Fitur Amplop Digital (Gift)',
+          'Hitung Mundur (Countdown)',
+          'Konsultasi Tema'
+        ],
+        highlight: true
+      },
+      {
+        name: 'Custom Template',
+        price: 'Custom',
+        description: 'Desain khusus dan eksklusif persis sesuai keinginan Anda.',
+        features: [
+          'Multi-bahasa',
+          'Desain Tema Custom/Eksklusif',
+          'Galeri Foto Unlimited',
+          'Navigasi Peta (Google Maps)',
+          'Hitung Mundur (Countdown)',
+          'Video Pre-Wedding Integration',
+          'Fitur Amplop Digital (Gift)',
+          'Custom Background Music',
+          'Custom Domain (namaanda.com)',
+          'Revisi Sepuasnya'
+        ],
+        highlight: false
+      }
+    ]
+  } else {
+    return [
+      {
+        name: 'Basic',
+        price: '150',
+        description: 'Perfect for a simple and elegant digital invitation.',
+        features: [
+          'Default 1 Language',
+          'Gallery Max 10 Photos',
+          'Video Pre-Wedding Integration',
+          'Custom Background Music',
+          'Map Navigation (Google Maps)',
+          'Countdown Timer',
+          'Theme Consultation'
+        ],
+        highlight: false
+      },
+      {
+        name: 'Basic + 1 Language',
+        price: '200',
+        description: 'The most popular choice with an additional language option for your special day.',
+        features: [
+          'Default + 1 Additional Language',
+          'Gallery Max 15 Photos',
+          'Video Pre-Wedding Integration',
+          'Custom Background Music',
+          'RSVP Feature',
+          'Map Navigation (Google Maps)',
+          'Digital Envelope Feature (Gift)',
+          'Countdown Timer',
+          'Theme Consultation'
+        ],
+        highlight: true
+      },
+      {
+        name: 'Custom Template',
+        price: 'Custom',
+        description: 'Special and exclusive design exactly as you wish.',
+        features: [
+          'Multi-language',
+          'Custom/Exclusive Theme Design',
+          'Unlimited Photo Gallery',
+          'Map Navigation (Google Maps)',
+          'Countdown Timer',
+          'Video Pre-Wedding Integration',
+          'Digital Envelope Feature (Gift)',
+          'Custom Background Music',
+          'Custom Domain (yourname.com)',
+          'Unlimited Revisions'
+        ],
+        highlight: false
+      }
+    ]
+  }
+})
 </script>
 
 <template>
@@ -66,24 +151,24 @@ const packages = [
             name="mdi:tag-outline"
             class="w-4 h-4 text-pink-300"
           />
-          <span class="text-xs font-semibold tracking-widest uppercase text-white/80">Paket & Harga</span>
+          <span class="text-xs font-semibold tracking-widest uppercase text-white/80">{{ texts.badge }}</span>
         </div>
         <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight">
-          Investasi Untuk <span class="italic text-pink-200">Momen Berharga</span>
+          {{ texts.heading1 }} <span class="italic text-pink-200">{{ texts.heading2 }}</span>
         </h2>
         <p class="text-base md:text-lg text-white/60 font-light">
-          Pilih paket yang paling sesuai dengan kebutuhan hari bahagia Anda. Transparan tanpa biaya tersembunyi.
+          {{ texts.desc }}
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-8 items-stretch max-w-6xl mx-auto">
         <div
           v-for="(pkg, i) in packages"
           :key="i"
           :class="[
-            'relative p-8 md:p-10 rounded-3xl border transition-all duration-500 overflow-hidden group',
+            'relative p-8 md:p-10 rounded-3xl border transition-all duration-500 overflow-hidden group flex flex-col flex-1 h-auto',
             pkg.highlight
-              ? 'bg-gradient-to-br from-pink-900/40 to-black border-pink-500/50 shadow-[0_0_50px_rgba(249,168,212,0.15)] md:-translate-y-4 z-10'
+              ? 'bg-gradient-to-br from-pink-900/40 to-black border-pink-500/50 shadow-[0_0_50px_rgba(249,168,212,0.15)] z-10'
               : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
           ]"
         >
@@ -98,7 +183,7 @@ const packages = [
             v-if="pkg.highlight"
             class="absolute top-0 right-8 bg-pink-500 text-white text-[10px] font-bold tracking-widest uppercase py-1.5 px-4 rounded-b-lg"
           >
-            Populer
+            {{ texts.popular }}
           </div>
 
           <div class="mb-8">
@@ -112,7 +197,7 @@ const packages = [
 
           <div class="mb-8 flex items-end gap-1">
             <template v-if="pkg.price === 'Custom'">
-              <span class="text-3xl lg:text-4xl font-serif text-white">Hubungi Kami</span>
+              <span class="text-3xl lg:text-4xl font-serif text-white">{{ texts.contactUs }}</span>
             </template>
             <template v-else>
               <span class="text-xl text-white/60 font-medium">Rp</span>
@@ -136,21 +221,23 @@ const packages = [
             </div>
           </div>
 
-          <a
-            :href="`https://wa.me/6287766603301?text=Halo%20Keevia,%20saya%20tertarik%20dengan%20paket%20${pkg.name}`"
-            target="_blank"
-            :class="[
-              'w-full py-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2',
-              pkg.highlight
-                ? 'bg-pink-500 hover:bg-pink-400 text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:-translate-y-1'
-                : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'
-            ]"
-          >
-            Pilih {{ pkg.name }} <UIcon
-              name="mdi:arrow-right"
-              class="w-4 h-4"
-            />
-          </a>
+          <div class="mt-auto">
+            <a
+              :href="`https://wa.me/6287766603301?text=${encodeURIComponent(texts.whatsappText)}%20${encodeURIComponent(pkg.name)}`"
+              target="_blank"
+              :class="[
+                'w-full py-4 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2',
+                pkg.highlight
+                  ? 'bg-pink-500 hover:bg-pink-400 text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:-translate-y-1'
+                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'
+              ]"
+            >
+              {{ texts.choose }} {{ pkg.name }} <UIcon
+                name="mdi:arrow-right"
+                class="w-4 h-4"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

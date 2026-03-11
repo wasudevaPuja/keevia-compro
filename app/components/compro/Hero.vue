@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const lang = useLang()
+
+const texts = computed(() => {
+  return lang.value === 'id' ? {
+    badge: 'Premium Digital Invitations',
+    heading1: 'Undangan Berkelas',
+    heading2: 'Untuk Momen Nyata',
+    desc: 'Keevia menghadirkan pengalaman undangan digital interaktif, mewah, dan eksklusif. Abadikan kisah cinta Anda dalam satu tautan elegan.',
+    btnThemes: 'Lihat Koleksi Tema',
+    btnFeatures: 'Pelajari Fitur'
+  } : {
+    badge: 'Premium Digital Invitations',
+    heading1: 'Classy Invitations',
+    heading2: 'For Real Moments',
+    desc: 'Keevia presents an interactive, luxurious, and exclusive digital invitation experience. Capture your love story in one elegant link.',
+    btnThemes: 'View Theme Collection',
+    btnFeatures: 'Learn Features'
+  }
+})
+</script>
+
 <template>
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
     <!-- Background Video or Img with Overlay -->
@@ -31,18 +55,18 @@
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 animate-fade-in-up">
         <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse" />
-        <span class="text-xs font-semibold tracking-widest uppercase text-white/80">Premium Digital Invitations</span>
+        <span class="text-xs font-semibold tracking-widest uppercase text-white/80">{{ texts.badge }}</span>
       </div>
 
       <!-- Main Heading -->
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-tight md:leading-tight mb-6 opacity-0 animate-[fade-in-up_1s_ease-out_0.3s_forwards]">
-        Undangan Berkelas <br>
-        <span class="italic font-light text-pink-200">Untuk Momen Nyata</span>
+        {{ texts.heading1 }} <br>
+        <span class="italic font-light text-pink-200">{{ texts.heading2 }}</span>
       </h1>
 
       <!-- Description -->
       <p class="text-base md:text-xl text-white/70 font-light max-w-2xl mx-auto mb-10 leading-relaxed font-sans opacity-0 animate-[fade-in-up_1s_ease-out_0.5s_forwards]">
-        Keevia menghadirkan pengalaman undangan digital interaktif, mewah, dan eksklusif. Abadikan kisah cinta Anda dalam satu tautan elegan.
+        {{ texts.desc }}
       </p>
 
       <!-- CTA Buttons -->
@@ -51,13 +75,13 @@
           href="#themes"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-pink-300 text-gray-900 font-medium tracking-wide hover:bg-pink-400 transition-all shadow-[0_0_30px_rgba(249,168,212,0.3)] hover:shadow-[0_0_40px_rgba(249,168,212,0.5)] hover:-translate-y-1"
         >
-          Lihat Koleksi Tema
+          {{ texts.btnThemes }}
         </a>
         <a
           href="#features"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium tracking-wide hover:bg-white/10 backdrop-blur-sm transition-all hover:border-white/20 hover:-translate-y-1"
         >
-          Pelajari Fitur
+          {{ texts.btnFeatures }}
         </a>
       </div>
 
