@@ -13,13 +13,17 @@
     <section class="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden transition-all duration-1000">
       
       <NuxtImg
-        src="/img/bali_vector_pattern_gold.png"
-        class="absolute inset-0 w-full h-full object-cover scale-105"
+        src="/img/bali_luxury_hero.png"
+        class="absolute inset-0 w-full h-full object-cover scale-105 opacity-80"
         format="webp"
-        quality="80"
+        quality="100"
         sizes="sm:100vw lg:100vw"
         loading="lazy"
       />
+
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div v-for="i in 15" :key="i" class="particle" :style="generateParticleStyle()"></div>
+      </div>
 
       
       <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a]" />
@@ -30,8 +34,8 @@
       >
         <p class="tracking-[0.4em] text-[11px] mb-6 uppercase text-white/80">{{ t("weddingOf") }}</p>
 
-        <h1 class="text-6xl md:text-8xl font-light font-serif tracking-wide leading-tight mb-4">
-          Romeo <br class="md:hidden"><span class="text-amber-200 text-5xl md:text-7xl">&</span><br class="md:hidden"> Juliet
+        <h1 class="text-6xl md:text-9xl font-light font-serif tracking-tighter leading-tight mb-4 text-shimmer">
+          Romeo <br class="md:hidden"><span class="text-amber-200/60 text-5xl md:text-7xl">&</span><br class="md:hidden"> Juliet
         </h1>
 
         <p class="text-sm tracking-[0.25em] uppercase text-white/80 mb-12">{{ t("dateFull") }}</p>
@@ -271,24 +275,45 @@
               <p class="text-sm text-white/60 font-light max-w-lg mx-auto leading-relaxed">{{ t("giftDesc") }}</p>
            </div>
 
-           <div class="grid sm:grid-cols-2 gap-6 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
-             
-             <div class="bg-gradient-to-br from-blue-900/20 to-black border border-white/10 rounded-3xl p-8 text-left hover:border-blue-500/30 transition-colors">
-                <UIcon name="mdi:bank-outline" class="w-8 h-8 text-blue-300 mb-6" />
-                <h3 class="text-xl font-serif text-white mb-1">BCA</h3>
-                <p class="text-xs text-white/50 uppercase tracking-widest mb-4">a.n Romeo</p>
-                <p class="text-3xl font-mono text-white mb-6">1234567890</p>
-                <button @click="copyText('1234567890')" class="w-full py-3 bg-white/10 hover:bg-white/20 rounded-xl text-xs uppercase tracking-widest font-medium text-white transition-all flex items-center justify-center gap-2"><UIcon name="mdi:content-copy" class="w-4 h-4"/> {{ t("copyAcc") }}</button>
-             </div>
-             
-             
-             <div class="bg-gradient-to-br from-amber-900/10 to-black border border-white/10 rounded-3xl p-8 text-left hover:border-amber-500/30 transition-colors">
-                <UIcon name="mdi:gift-outline" class="w-8 h-8 text-amber-300 mb-6" />
-                <h3 class="text-xl font-serif text-white mb-1">{{ t("physGift") }}</h3>
-                <p class="text-sm text-white/70 font-light leading-relaxed my-4 pb-4 border-b border-white/10">{{ t("physAddress") }}</p>
-                <a href="#" target="_blank" class="w-full inline-flex py-3 bg-white/10 hover:bg-white/20 rounded-xl text-xs uppercase tracking-widest font-medium text-white transition-all items-center justify-center gap-2"><UIcon name="mdi:google-maps" class="w-4 h-4"/> Google Maps</a>
-             </div>
-           </div>
+            <div class="grid sm:grid-cols-2 gap-8 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
+              
+              <div class="relative group h-64 rounded-[32px] overflow-hidden p-8 flex flex-col justify-between border border-white/10 shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-amber-500/10">
+                 <div class="absolute inset-0 bg-[#121212] transition-colors group-hover:bg-[#161616]" />
+                 <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                 <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-colors" />
+                 
+                 <div class="relative z-10 flex justify-between items-start">
+                   <div class="w-12 h-8 bg-gradient-to-br from-amber-200/40 to-amber-500/20 rounded-md border border-white/10 backdrop-blur-sm self-start" />
+                   <NuxtImg src="/img/keevia_logo.png" class="h-4 opacity-30 invert grayscale" v-if="hasMounted" />
+                 </div>
+
+                 <div class="relative z-10">
+                   <p class="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-2">Account Number</p>
+                   <p class="text-3xl font-mono text-white tracking-widest mb-6 border-b border-white/5 pb-4">1234567890</p>
+                   <div class="flex justify-between items-end">
+                     <div>
+                       <p class="text-[9px] tracking-widest uppercase text-white/30">Card Holder</p>
+                       <p class="text-sm font-serif text-amber-200/80">ROMEO</p>
+                     </div>
+                     <button @click="copyText('1234567890')" class="px-6 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-[9px] uppercase tracking-widest font-bold text-white transition-all flex items-center gap-2">
+                       <UIcon name="mdi:content-copy" class="w-3 h-3"/> COPY
+                     </button>
+                   </div>
+                 </div>
+              </div>
+              
+              <div class="relative group h-64 rounded-[32px] overflow-hidden p-8 flex flex-col items-center justify-center border border-white/10 shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:shadow-white/5">
+                 <div class="absolute inset-0 bg-[#0a0a0a] border border-white/5" />
+                 <div class="absolute inset-0 bg-[url('/img/bali_gold_motif.png')] bg-[length:200px] opacity-[0.03] grayscale pointer-events-none" />
+                 
+                 <UIcon name="mdi:gift-outline" class="relative z-10 w-12 h-12 text-amber-200/30 mb-4" />
+                 <h3 class="relative z-10 text-xl font-serif text-white mb-2">{{ t("physGift") }}</h3>
+                 <p class="relative z-10 text-[11px] text-white/50 font-light text-center max-w-[200px] mb-6">{{ t("physAddress") }}</p>
+                 <a href="#" target="_blank" class="relative z-10 px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-[9px] uppercase tracking-widest font-bold text-white transition-all flex items-center gap-2">
+                   <UIcon name="mdi:map-marker" class="w-3 h-3"/> OPEN MAPS
+                 </a>
+              </div>
+            </div>
          </div>
       </section>
 
@@ -300,23 +325,23 @@
               <p class="text-4xl font-serif text-white mb-4">{{ t("memoriesTitle") }}</p>
            </div>
            
-           <div class="flex items-start gap-4 sm:gap-6 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
+           <div class="flex items-start gap-4 sm:gap-8 opacity-0 transition-all ease-out scroll-animate translate-y-10 duration-[1000ms] delay-200">
              
-             <div class="flex-1 flex flex-col gap-4 sm:gap-6">
-                <div v-for="i in 3" :key="'l'+i" class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-lg" @click="openLightbox('/img/bali_vector_pattern_gold.png')">
-                   <NuxtImg src="/img/bali_vector_pattern_gold.png" :class="['w-full object-cover transition-transform duration-700 group-hover:scale-110', i === 2 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
-                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                     <span class="text-white border border-white/50 px-4 py-2 rounded-full text-[10px] tracking-widest uppercase bg-black/30 backdrop-blur-sm">{{ t("tapEnlarge") }}</span>
+             <div class="flex-1 flex flex-col gap-4 sm:gap-8">
+                <div v-for="(img, i) in galleryImages.slice(0, 3)" :key="'l'+i" class="relative group overflow-hidden rounded-[32px] cursor-pointer shadow-2xl border border-white/5" @click="openLightbox(img)">
+                   <NuxtImg :src="img" :class="['w-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0', i === 1 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
+                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                     <UIcon name="mdi:magnify-plus-outline" class="w-10 h-10 text-white/70 scale-75 group-hover:scale-100 transition-transform duration-500" />
                    </div>
                 </div>
              </div>
              
              
-             <div class="flex-1 flex flex-col gap-4 sm:gap-6 mt-12 sm:mt-24">
-                <div v-for="i in 3" :key="'r'+i" class="relative group overflow-hidden rounded-2xl cursor-pointer shadow-lg" @click="openLightbox('/img/bali_vector_pattern_gold.png')">
-                   <NuxtImg src="/img/bali_vector_pattern_gold.png" :class="['w-full object-cover transition-transform duration-700 group-hover:scale-110', i === 1 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
-                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                     <span class="text-white border border-white/50 px-4 py-2 rounded-full text-[10px] tracking-widest uppercase bg-black/30 backdrop-blur-sm">{{ t("tapEnlarge") }}</span>
+             <div class="flex-1 flex flex-col gap-4 sm:gap-8 mt-12 sm:mt-32">
+                <div v-for="(img, i) in galleryImages.slice(3, 6)" :key="'r'+i" class="relative group overflow-hidden rounded-[32px] cursor-pointer shadow-2xl border border-white/5" @click="openLightbox(img)">
+                   <NuxtImg :src="img" :class="['w-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.5] group-hover:grayscale-0', i === 0 ? 'aspect-square' : 'aspect-[3/4]']" loading="lazy" />
+                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                     <UIcon name="mdi:magnify-plus-outline" class="w-10 h-10 text-white/70 scale-75 group-hover:scale-100 transition-transform duration-500" />
                    </div>
                 </div>
              </div>
@@ -354,6 +379,45 @@
 
 <style>
 
+.text-shimmer {
+  background: linear-gradient(
+    to bottom right,
+    #ffffff 20%,
+    #fde68a 40%,
+    #fbbf24 50%,
+    #fde68a 60%,
+    #ffffff 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(251, 191, 36, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-up 10s linear infinite;
+}
+
+@keyframes float-up {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 0.5; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1.5s ease;
@@ -370,7 +434,7 @@
 
 <script setup lang="ts">
 
-import { ref, onMounted, computed, inject, watch, nextTick, onUnmounted } from 'vue'
+import { ref, onMounted, computed, inject, watch, nextTick, onUnmounted, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useNuxtApp } from '#app'
 
@@ -388,6 +452,7 @@ const images = ref<string[]>([
   '/img/blossom_showcase.png' 
 ])
 
+const hasMounted = ref(false)
 const current = ref(0)
 let _interval: number | undefined
 
@@ -695,7 +760,7 @@ const initScrollAnimations = () => {
 }
 
 onMounted(() => {
-
+  hasMounted.value = true
   document.querySelectorAll('video').forEach(vid => {
     const playPromise = vid.play()
     if (playPromise !== undefined) {
@@ -750,6 +815,27 @@ const formatDate = (d: Date) => new Date(d).toLocaleString('id-ID', {
   dateStyle: 'medium',
   timeStyle: 'short'
 })
+
+const generateParticleStyle = () => {
+  const left = Math.random() * 100
+  const duration = 10 + Math.random() * 10
+  const delay = Math.random() * 5
+  return {
+    left: `${left}%`,
+    animationDuration: `${duration}s`,
+    animationDelay: `-${delay}s`,
+    opacity: Math.random() * 0.5
+  }
+}
+
+const galleryImages = [
+  '/img/bali_aesthetic_hero.png',
+  '/img/bali_gallery_1.png',
+  '/img/bali_gallery_2.png',
+  '/img/bali_aesthetic_hero.png',
+  '/img/bali_gallery_1.png',
+  '/img/bali_gallery_2.png'
+]
 
 const copyText = (text: string) => {
   navigator.clipboard.writeText(text)
