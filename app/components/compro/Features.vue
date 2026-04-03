@@ -89,13 +89,13 @@ const texts = computed(() => {
     heading1: 'Lebih Dari Sekadar',
     heading2: 'Undangan',
     desc: 'Setiap detail dirancang untuk memberikan pengalaman tak terlupakan bagi Anda dan para tamu undangan.',
-    newFeature: 'New Feature'
+    newFeature: 'Best Feature'
   } : {
     badge: 'Key Features',
     heading1: 'More Than Just',
     heading2: 'An Invitation',
     desc: 'Every detail is designed to provide an unforgettable experience for you and your guests.',
-    newFeature: 'New Feature'
+    newFeature: 'Best Feature'
   }
 })
 </script>
