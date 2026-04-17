@@ -23,11 +23,11 @@
     <!-- COVER: Elegant, minimalist typography -->
     <section class="relative z-10 w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
       <div class="relative z-10 flex flex-col items-center justify-center w-full max-w-lg mt-10">
-        <p class="text-[10px] tracking-[0.4em] uppercase mb-4 text-[#8a817c]">The Wedding Of</p>
-        <h1 class="text-6xl md:text-8xl font-serif mb-6 text-[#4a4036] leading-tight select-none">
+        <p class="text-[10px] tracking-[0.4em] uppercase mb-4 text-[#8a817c] text-halo">The Wedding Of</p>
+        <h1 class="text-6xl md:text-8xl font-serif mb-6 text-[#4a4036] leading-tight select-none text-halo">
           James <span class="italic font-light">&amp;</span> Natalia
         </h1>
-        <p class="text-xs tracking-[0.3em] text-[#8a817c] mb-12 uppercase">Monday, 12 Jan 2026</p>
+        <p class="text-xs tracking-[0.3em] text-[#8a817c] mb-12 uppercase text-halo">Monday, 12 Jan 2026</p>
 
         <div class="w-full max-w-sm bg-white/70 backdrop-blur-md border border-white/60 p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <template v-if="!isOpen">
@@ -44,9 +44,9 @@
         </div>
       </div>
 
-      <div v-if="isOpen" class="absolute bottom-10 z-10 flex flex-col items-center gap-2 text-[#8a817c] animate-bounce">
+      <div v-if="isOpen" class="absolute bottom-10 z-10 flex flex-col items-center gap-2 text-[#8a817c] animate-bounce text-halo">
         <span class="text-[10px] tracking-widest uppercase">Scroll</span>
-        <UIcon name="mdi:chevron-down" class="w-5 h-5" />
+        <UIcon name="mdi:chevron-down" class="w-5 h-5 line-halo" />
       </div>
     </section>
 
@@ -55,7 +55,7 @@
       
       <!-- QUOTE SECTION -->
       <section class="py-32 px-6 md:px-12 text-center max-w-3xl mx-auto">
-        <div class="relative py-12 px-6 md:px-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+        <div class="relative py-12 px-6 md:px-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000 bg-white/50 backdrop-blur-md rounded-3xl border border-white/60 shadow-xl">
           <!-- Decorative borders -->
           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-px bg-[#8a817c]/40"></div>
           <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-px bg-[#8a817c]/40"></div>
@@ -78,8 +78,11 @@
       <!-- PROFILE -->
       <section class="py-24 px-6 relative">
         <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-            <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-2 select-none">Pasangan Mempelai</h2>
+          <div class="flex flex-col items-center text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+            <div class="w-px h-16 bg-gradient-to-b from-transparent to-[#8a817c]/50 mb-6 line-halo"></div>
+            <span class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4 text-halo">The Bride & Groom</span>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6 select-none text-halo">Pasangan Mempelai</h2>
+            <div class="w-12 h-px bg-[#8a817c]/30 line-halo"></div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-12 md:gap-16">
@@ -113,9 +116,11 @@
 
       <!-- LOVE STORY -->
       <section class="py-24 px-6 max-w-4xl mx-auto relative cursor-default">
-        <div class="text-center mb-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-          <p class="text-[10px] tracking-[0.4em] uppercase mb-4 text-[#8a817c]">A Journey In Love</p>
-          <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036]">Our Story</h2>
+        <div class="flex flex-col items-center text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+          <div class="w-px h-16 bg-gradient-to-b from-transparent to-[#8a817c]/50 mb-6 line-halo"></div>
+          <p class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4 text-halo">A Journey In Love</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6 text-halo">Our Story</h2>
+          <div class="w-12 h-px bg-[#8a817c]/30 line-halo"></div>
         </div>
         
         <div class="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-px before:bg-gradient-to-b before:from-transparent before:via-[#8a817c]/30 before:to-transparent">
@@ -153,9 +158,11 @@
       <section class="py-24 px-6 relative">
         <div class="absolute inset-0 bg-[#4a4036] opacity-[0.03] pointer-events-none"></div>
         <div class="max-w-5xl mx-auto relative z-10">
-          <div class="text-center mb-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-            <h2 class="text-4xl font-serif text-[#4a4036] mb-4">Wedding Event</h2>
-            <p class="text-[10px] tracking-[0.3em] text-[#8a817c] uppercase">The best is yet to come</p>
+          <div class="flex flex-col items-center text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+            <div class="w-px h-16 bg-gradient-to-b from-transparent to-[#8a817c]/50 mb-6 line-halo"></div>
+            <p class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4 text-halo">The best is yet to come</p>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6 text-halo">Wedding Event</h2>
+            <div class="w-12 h-px bg-[#8a817c]/30 line-halo"></div>
           </div>
           <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
             <div class="bg-white/50 backdrop-blur-md border border-white/60 p-10 lg:p-12 rounded-2xl text-center shadow-[0_4px_20px_rgb(0,0,0,0.02)] scroll-animate opacity-0 translate-y-8 transition-all duration-1000 delay-100 hover:-translate-y-1 hover:shadow-lg">
@@ -193,9 +200,11 @@
 
       <!-- RSVP & UCAPAN -->
       <section class="py-24 px-6 max-w-5xl mx-auto">
-        <div class="text-center mb-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-          <p class="text-[10px] tracking-[0.4em] uppercase mb-4 text-[#8a817c]">Your Presence</p>
-          <h2 class="text-4xl font-serif text-[#4a4036]">RSVP &amp; Best Wishes</h2>
+        <div class="flex flex-col items-center text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+          <div class="w-px h-16 bg-gradient-to-b from-transparent to-[#8a817c]/50 mb-6 line-halo"></div>
+          <p class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4 text-halo">Your Presence</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6 text-halo">RSVP &amp; Best Wishes</h2>
+          <div class="w-12 h-px bg-[#8a817c]/30 line-halo"></div>
         </div>
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <!-- FORM -->
@@ -238,10 +247,12 @@
 
       <!-- WEDDING GIFT -->
       <section class="py-32 px-6 text-center relative mt-12 bg-white/20 backdrop-blur-sm border-t border-white/40">
-        <div class="max-w-2xl mx-auto scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-          <UIcon name="mdi:gift-outline" class="w-8 h-8 text-[#8a817c] mx-auto mb-6" />
-          <h2 class="text-4xl font-serif text-[#4a4036] mb-6">Wedding Gift</h2>
-          <p class="text-sm text-[#5c544e] mx-auto mb-10 leading-relaxed font-light">
+        <div class="flex flex-col items-center max-w-2xl mx-auto scroll-animate opacity-0 translate-y-8 transition-all duration-1000 bg-white/70 backdrop-blur-md p-10 md:p-14 rounded-3xl border border-white/80 shadow-sm relative z-10">
+          <UIcon name="mdi:gift-outline" class="w-8 h-8 text-[#8a817c] mb-6" />
+          <p class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4">Tanda Kasih</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6">Wedding Gift</h2>
+          <div class="w-12 h-px bg-[#8a817c]/30 mb-8"></div>
+          <p class="text-sm text-[#5c544e] mx-auto mb-10 leading-relaxed font-light text-center">
             Doa restu Anda merupakan karunia yang sangat berarti bagi kami. 
             Namun jika Bapak/Ibu/Saudara/i bermisi untuk memberikan tanda kasih, dapat melalui tautan di bawah ini.
           </p>
@@ -254,9 +265,11 @@
       <!-- GALLERY -->
       <section class="py-32 px-6 relative border-t border-white/20">
         <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
-            <p class="text-[10px] tracking-[0.4em] uppercase mb-4 text-[#8a817c]">Our Memories</p>
-            <h2 class="text-4xl font-serif text-[#4a4036] mb-4">Gallery</h2>
+          <div class="flex flex-col items-center text-center mb-20 scroll-animate opacity-0 translate-y-8 transition-all duration-1000">
+            <div class="w-px h-16 bg-gradient-to-b from-transparent to-[#8a817c]/50 mb-6 line-halo"></div>
+            <p class="text-[9px] font-medium tracking-[0.4em] text-[#8a817c] uppercase mb-4 text-halo">Our Memories</p>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#4a4036] mb-6 text-halo">Gallery</h2>
+            <div class="w-12 h-px bg-[#8a817c]/30 line-halo"></div>
           </div>
 
           <div class="columns-2 md:columns-3 gap-4 space-y-4 scroll-animate opacity-0 translate-y-8 transition-all duration-1000 delay-100">
@@ -357,5 +370,12 @@ onMounted(() => {
 }
 .font-sans {
   font-family: 'Inter', sans-serif;
+}
+.text-halo {
+  text-shadow: 0 0 15px rgba(250,248,245,0.9), 0 0 30px rgba(250,248,245,1), 0 0 45px rgba(250,248,245,1);
+}
+.line-halo {
+  box-shadow: 0 0 10px rgba(250,248,245,0.9), 0 0 20px rgba(250,248,245,1);
+  background-color: rgba(138, 129, 124, 0.7) !important;
 }
 </style>

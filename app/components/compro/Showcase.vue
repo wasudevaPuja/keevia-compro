@@ -72,7 +72,15 @@ const themes = computed(() => [
     style: 'Coastal / Turquoise',
     href: '/showcase/ocean',
     categories: ['modern', 'aesthetic']
-  }
+  },
+  // {
+  //   name: 'Monocrom',
+  //   image: '/img/blossom_showcase.png',
+  //   style: 'Minimalist / Earthy',
+  //   href: '/showcase/monocrom',
+  //   isNew: true,
+  //   categories: ['modern', 'aesthetic']
+  // }
 ])
 
 const filteredThemes = computed(() => {
